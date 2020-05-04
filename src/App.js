@@ -1,26 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import WeightChart from './weightChart/weightChart.jsx';
+import Weight from './weight/weight.jsx';
 import MacrosChart from './macrosChart/macrosChart.jsx';
 import UpperBar from './upperBar/upperBar.jsx';
-import NavigationBar from './navigationBar/navigationBar.jsx';
 import Home from './home/home.jsx';
-function App() {
-  {/* 
-  return (
-    <div className="App">
-      <MacrosChart/>
-    </div>
-  );
-  */}
-  return (
-    <div className="App">
-      <UpperBar/>
-      <NavigationBar/>
-      <Home/>
-    </div>
-  );
+import { Route } from 'react-router-dom';
+class App extends Component {
+  render(){
+    const HomePage = ()=>{
+      return(
+        <>
+        <UpperBar/>
+        <Home/>
+        </>
+      );
+    }
+    const WeightPage = ()=>{
+      return(
+        <>
+        <UpperBar/>
+        <Weight/>
+        </>
+      );
+    }
+    return (
+      <div className="App">
+      <Route exact path='/' component={HomePage} />
+      <Route exact path='/weight' component={WeightPage} />
+      </div>
+    );
+  }
+  
 }
 
 export default App;

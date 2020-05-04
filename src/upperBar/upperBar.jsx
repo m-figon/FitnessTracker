@@ -1,12 +1,14 @@
 import React from 'react'
 import './upperBar.css';
+import { Link } from 'react-router-dom';
 function UpperBar() {
     return (
+        <>
         <div className="upper-bar">
             <div className="u-bar">
                 <div className="u-left">
                 <img src="https://img.icons8.com/cotton/64/000000/weight-1--v2.png"/>
-                <h1>Fitness Tracker</h1>
+                <Link to="/" style={{ textDecoration: 'none', color:"rgb(76, 145, 235)" }}><h1>Fitness Tracker</h1></Link>     
                 </div>
                 <div className="u-right">
                 <h1>Log In</h1>
@@ -14,6 +16,16 @@ function UpperBar() {
                 </div>
             </div>
         </div>
+        <div className="navigation-bar">
+        <div className="n-bar">
+            <Link to="/account" style={{ textDecoration: 'none', color:"white" }}><h1>ACCOUNT</h1></Link>
+            <Link to="/food" style={{ textDecoration: 'none', color:"white" }}><h1>FOOD</h1></Link>
+            <Link to="/excersise" style={{ textDecoration: 'none', color:"white" }}><h1>EXCERSISE</h1></Link>
+            <Link to="/weight" style={{ textDecoration: 'none', color:"white" }}><h1>WEIGHT</h1></Link>
+            <Link to="/goals" style={{ textDecoration: 'none', color:"white" }}><h1>GOALS</h1></Link>
+        </div>
+    </div>
+    </>
     )
 }
 

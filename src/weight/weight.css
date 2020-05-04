@@ -1,0 +1,28 @@
+.weight-line,
+.weight{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.weight-line{
+    margin-top: 2vh;
+}
+.weight{
+    flex-direction: column;
+}
+.weight button{
+    background-color: rgb(76, 145, 235);
+    color:white;
+    border: 2px solid black;
+    border-radius: 1rem;
+}
+.weight-line h1{
+    font-size: 1rem;
+}
+.weight-line input{
+    margin-left: 0.5vw;
+    height: 1rem;
+}
+.weight-chart{
+    margin-top: 2vh;
+}
