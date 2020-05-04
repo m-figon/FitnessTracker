@@ -1,9 +1,28 @@
 import React, { Component } from 'react'
 import { Line } from 'react-chartjs-2';
 class WeightChart extends Component {
+    constructor() {
+        super();
+        this.state = {
+            weight: []
+        }
+    }
+    componentDidMount() {
+        fetch('http://localhost:3000/GogobatmanWeight')
+            .then(response => response.json())
+            .then(data => this.setState({
+                weight: data
+            }));
+    }
     render() {
+        let weightDate = this.state.weight.map((item) => {
+            return (item.date);
+        });
+        let weightValue = this.state.weight.map((item) => {
+            return (item.weight);
+        })
         const data = {
-            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday'],
+            labels: weightDate,
             datasets: [
                 {
                     label: 'Body weight during this week',
@@ -24,7 +43,7 @@ class WeightChart extends Component {
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    data: [68.6,69.0,68.5,69.0,69.0,69.6,69.6]
+                    data: weightValue
                 }
             ]
         };

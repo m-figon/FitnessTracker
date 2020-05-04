@@ -18,7 +18,7 @@ function UpperBar() {
         </div>
         <div className="navigation-bar">
         <div className="n-bar">
-            <Link to="/account" style={{ textDecoration: 'none', color:"white" }}><h1>ACCOUNT</h1></Link>
+            <Link to="/account" style={{ textDecoration: 'none', color:"white" }}><h1>ACCOUNT</h1></Link>          
             <Link to="/food" style={{ textDecoration: 'none', color:"white" }}><h1>FOOD</h1></Link>
             <Link to="/excersise" style={{ textDecoration: 'none', color:"white" }}><h1>EXCERSISE</h1></Link>
             <Link to="/weight" style={{ textDecoration: 'none', color:"white" }}><h1>WEIGHT</h1></Link>
