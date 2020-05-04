@@ -1,0 +1,6 @@
+.home-display{
+    width:100%;
+    height:83vh;
+    background: url('food.jpg');
+    background-size: cover; /* Resize the background image to cover the entire container */
+}

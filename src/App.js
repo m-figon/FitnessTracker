@@ -1,24 +1,24 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import WeightChart from './weightChart/weightChart.jsx';
+import MacrosChart from './macrosChart/macrosChart.jsx';
+import UpperBar from './upperBar/upperBar.jsx';
+import NavigationBar from './navigationBar/navigationBar.jsx';
+import Home from './home/home.jsx';
 function App() {
+  {/* 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MacrosChart/>
+    </div>
+  );
+  */}
+  return (
+    <div className="App">
+      <UpperBar/>
+      <NavigationBar/>
+      <Home/>
     </div>
   );
 }
