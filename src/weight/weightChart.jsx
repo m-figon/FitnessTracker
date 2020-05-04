@@ -3,22 +3,13 @@ import { Line } from 'react-chartjs-2';
 class WeightChart extends Component {
     constructor() {
         super();
-        this.state = {
-            weight: []
-        }
     }
-    componentDidMount() {
-        fetch('http://localhost:3000/GogobatmanWeight')
-            .then(response => response.json())
-            .then(data => this.setState({
-                weight: data
-            }));
-    }
+    
     render() {
-        let weightDate = this.state.weight.map((item) => {
-            return (item.date);
+        let weightDate = this.props.weight.map((item) => {
+            return (item.day+"."+item.month+"."+item.year);
         });
-        let weightValue = this.state.weight.map((item) => {
+        let weightValue = this.props.weight.map((item) => {
             return (item.weight);
         })
         const data = {
