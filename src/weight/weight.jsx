@@ -30,19 +30,33 @@ class Weight extends Component {
             
     }
     addWeight(){
-        //console.log(this.state.weightArray[this.state.weightArray.length-1]);
-        //if not last PUT
-        //if last
         let dateExists=false;
-        let tmpId;
+        let existingId;
         for(const item of this.state.weightArray){
             if(item.day===this.state.day&& item.month===this.state.month&& item.year===this.state.year){
                 dateExists=true;
-                tmpId=item.id;
+                existingId=item.id;
             }
         }
-        if(dateExists){
-            fetch('http://localhost:3000/GogobatmanWeight/'+tmpId, {
+        let oldestDate=true;
+        for(const item of this.state.weightArray){
+            if(parseInt(item.year)>parseInt(this.state.year)){
+                oldestDate=false;
+                console.log("year" + item.year);
+            }else if(parseInt(item.year)===parseInt(this.state.year)){
+                if(parseInt(item.month)>parseInt(this.state.month)){
+                    oldestDate=false;
+                    console.log("month" + item.month);
+                }else if(parseInt(item.month)===parseInt(this.state.month)){
+                    if(parseInt(item.day)>parseInt(this.state.day)){
+                        oldestDate=false;
+                        console.log("day" + item.day);
+                    }
+                }
+            }
+        }
+        if(dateExists && this.state.weight!==""){
+            fetch('http://localhost:3000/GogobatmanWeight/'+existingId, {
             method: 'PUT',
             body: JSON.stringify({
                 year: this.state.year,
@@ -54,7 +68,7 @@ class Weight extends Component {
                 "Content-type": "application/json; charset=UTF-8"
             }
         })
-        }else{
+        }else if(!dateExists && oldestDate && this.state.weight!==""){
             fetch('http://localhost:3000/GogobatmanWeight', {
             method: 'POST',
             body: JSON.stringify({
