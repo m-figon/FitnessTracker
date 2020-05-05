@@ -3,6 +3,7 @@ import './home.css';
 function home() {
     return (
         <div className="home-display">
+            
         </div>
     )
 }

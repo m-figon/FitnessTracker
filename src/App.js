@@ -13,7 +13,8 @@ class App extends Component {
     super();
     this.state={
       users: [],
-      logedId: 0
+      logedId: 0,
+      loged: true
     }
   }
   componentDidMount(){
@@ -27,7 +28,7 @@ class App extends Component {
     const HomePage = ()=>{
       return(
         <>
-        <UpperBar/>
+        <UpperBar loged={this.state.loged}/>
         <Home/>
         </>
       );
@@ -35,7 +36,7 @@ class App extends Component {
     const WeightPage = ()=>{
       return(
         <>
-        <UpperBar/>
+        <UpperBar loged={this.state.loged}/>
         <Weight/>
         </>
       );
@@ -43,7 +44,7 @@ class App extends Component {
     const GoalsPage = ()=>{
       return(
         <>
-        <UpperBar/>
+        <UpperBar loged={this.state.loged}/>
         <Goals users={this.state.users} id={this.state.logedId}/>
         </>
       );
@@ -51,7 +52,7 @@ class App extends Component {
     const NutritionPage = ()=>{
       return(
         <>
-        <UpperBar/>
+        <UpperBar loged={this.state.loged}/>
         <Nutrition users={this.state.users} id={this.state.logedId}/>
         </>
       );

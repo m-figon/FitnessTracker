@@ -7,7 +7,8 @@
     justify-content: center;
     align-items: center;
 }
-.n-bar{
+.n-bar,
+.slogan{
     width:50%;
     height:100%;
     display: flex;
@@ -15,7 +16,8 @@
     align-items: center;
     flex-direction: row;
 }
-.n-bar h1{
+.n-bar h1,
+.slogan h1{
     font-size: 1rem;
     padding-left: 1vw;
     padding-right: 1vw;
