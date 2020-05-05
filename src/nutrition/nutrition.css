@@ -6,10 +6,19 @@
     width: 100%;
     height: 100%;
 }
+.goals-content button{
+    background-color: rgb(240, 240, 240);
+    color:black;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+}
+.goals-content button:hover{
+    cursor: pointer;
+}
 .nutrition-settings{
     margin-top: 2vh;
     width: 30%;
-    height: 20vh;
+    height: 25vh;
     margin-bottom: 3vh;
 }
 .settings-line{

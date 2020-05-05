@@ -9,6 +9,20 @@ import Home from './home/home.jsx';
 import Goals from './goals/goals.jsx';
 import Nutrition from './nutrition/nutrition.jsx';
 class App extends Component {
+  constructor(){
+    super();
+    this.state={
+      users: [],
+      logedId: 0
+    }
+  }
+  componentDidMount(){
+    fetch('http://localhost:3000/users')
+            .then(response => response.json())
+            .then(data => this.setState({
+                users: data
+            }));
+  }
   render(){
     const HomePage = ()=>{
       return(
@@ -30,7 +44,7 @@ class App extends Component {
       return(
         <>
         <UpperBar/>
-        <Goals/>
+        <Goals users={this.state.users} id={this.state.logedId}/>
         </>
       );
     }
@@ -38,10 +52,11 @@ class App extends Component {
       return(
         <>
         <UpperBar/>
-        <Nutrition/>
+        <Nutrition users={this.state.users} id={this.state.logedId}/>
         </>
       );
     }
+    console.log(this.state.users);
     return (
       <div className="App">
       <Route exact path='/' component={HomePage} />

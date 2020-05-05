@@ -4,21 +4,21 @@ class MacrosChart extends Component {
     render() {
         const data = {
             labels: [
-                'Red',
-                'Blue',
-                'Yellow'
+                'Carbohydrates',
+                'Fats',
+                'Protein'
             ],
             datasets: [{
-                data: [300, 50, 100],
+                data: [this.props.users[this.props.id].carbs, this.props.users[this.props.id].fats, this.props.users[this.props.id].protein],
                 backgroundColor: [
-                '#FF6384',
-                '#36A2EB',
-                '#FFCE56'
+                    '#fcd303',
+                    '#0bb53b',
+                    '#d4310d'
                 ],
                 hoverBackgroundColor: [
-                '#FF6384',
-                '#36A2EB',
-                '#FFCE56'
+                    '#fcd303',
+                    '#0bb53b',
+                    '#d4310d'
                 ]
             }]
         };
