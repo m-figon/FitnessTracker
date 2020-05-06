@@ -1,6 +1,6 @@
 .navigation-bar{
     width:100%;
-    height: 7vh;
+    height: 5vh;
     background-color: rgb(76, 145, 235);
     color: white;
     display: flex;
@@ -21,7 +21,7 @@
     font-size: 1rem;
     padding-left: 1vw;
     padding-right: 1vw;
-    height: 7vh;
+    height: 5vh;
     display: flex;
     align-items: center;
 }

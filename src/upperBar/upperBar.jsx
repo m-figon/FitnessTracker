@@ -10,7 +10,7 @@ function UpperBar(props) {
             <Link to="/" style={{ textDecoration: 'none', color:"rgb(76, 145, 235)" }}><h1>Fitness Tracker</h1></Link>     
             </div>
             <div className="u-right">
-            <h1>Log In</h1>
+            <Link to="/login" style={{ textDecoration: 'none', color:"rgb(76, 145, 235)" }}><h1>Log In</h1></Link>
             <h1>Sign Up</h1>
             </div>
         </div>

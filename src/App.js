@@ -8,6 +8,8 @@ import UpperBar from './upperBar/upperBar.jsx';
 import Home from './home/home.jsx';
 import Goals from './goals/goals.jsx';
 import Nutrition from './nutrition/nutrition.jsx';
+import Login from './login/login.jsx';
+
 class App extends Component {
   constructor(){
     super();
@@ -57,12 +59,21 @@ class App extends Component {
         </>
       );
     }
+    const LoginPage = ()=>{
+      return(
+        <>
+        <UpperBar loged={this.state.loged}/>
+        <Login/>
+        </>
+      );
+    }
     console.log(this.state.users);
     return (
       <div className="App">
       <Route exact path='/' component={HomePage} />
       <Route exact path='/weight' component={WeightPage} />
       <Route exact path='/goals' component={GoalsPage} />
+      <Route exact path='/login' component={LoginPage} />
       <Route exact path='/goals/nutrition' component={NutritionPage} />
       </div>
     );
