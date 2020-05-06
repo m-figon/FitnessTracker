@@ -28,6 +28,10 @@ class nutrition extends Component {
             fetch('http://localhost:3000/users/' + this.props.id, {
                 method: 'PUT',
                 body: JSON.stringify({
+                    /*
+                    "name": "SlickJoe",
+                    "mail": "slickj@gmail.com",
+                    "password": "elko2",*/
                     calories: this.state.calories,
                     carbs: this.state.carbs,
                     fats: this.state.fats,
