@@ -62,3 +62,13 @@
     font-size: 1rem;
     margin-left: 0.5vw;
 }
+#visibleSign{
+    display: flex;
+}
+#hiddenSign{
+    display: none;
+}
+#gray{
+    color: rgb(211, 211, 211);
+    font-size: 1rem;
+}

@@ -9,76 +9,93 @@ import Home from './home/home.jsx';
 import Goals from './goals/goals.jsx';
 import Nutrition from './nutrition/nutrition.jsx';
 import Login from './login/login.jsx';
-
+import Register from './register/register.jsx';
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
-    this.state={
+    this.state = {
       users: [],
       logedId: 0,
-      loged: true
+      loged: false,
+      logedAc: ""
     }
+    this.settingState=this.settingState.bind(this);
   }
-  componentDidMount(){
+  componentDidMount() {
     fetch('http://localhost:3000/users')
-            .then(response => response.json())
-            .then(data => this.setState({
-                users: data
-            }));
+      .then(response => response.json())
+      .then(data => this.setState({
+        users: data
+      }));
   }
-  render(){
-    const HomePage = ()=>{
-      return(
+  settingState(array1, value1, array2, value2) {
+    this.setState({
+      [array1]: value1,
+      [array2]: value2
+    })
+  }
+  render() {
+    const HomePage = () => {
+      return (
         <>
-        <UpperBar loged={this.state.loged}/>
-        <Home/>
+          <UpperBar logedAc={this.state.logedAc} loged={this.state.loged} />
+          <Home />
         </>
       );
     }
-    const WeightPage = ()=>{
-      return(
+    const WeightPage = () => {
+      return (
         <>
-        <UpperBar loged={this.state.loged}/>
-        <Weight/>
+          <UpperBar logedAc={this.state.logedAc} loged={this.state.loged} />
+          <Weight />
         </>
       );
     }
-    const GoalsPage = ()=>{
-      return(
+    const GoalsPage = () => {
+      return (
         <>
-        <UpperBar loged={this.state.loged}/>
-        <Goals users={this.state.users} id={this.state.logedId}/>
+          <UpperBar logedAc={this.state.logedAc} loged={this.state.loged} />
+          <Goals users={this.state.users} id={this.state.logedId} />
         </>
       );
     }
-    const NutritionPage = ()=>{
-      return(
+    const NutritionPage = () => {
+      return (
         <>
-        <UpperBar loged={this.state.loged}/>
-        <Nutrition users={this.state.users} id={this.state.logedId}/>
+          <UpperBar logedAc={this.state.logedAc} loged={this.state.loged} />
+          <Nutrition users={this.state.users} id={this.state.logedId} />
         </>
       );
     }
-    const LoginPage = ()=>{
-      return(
+    const LoginPage = () => {
+      return (
         <>
-        <UpperBar loged={this.state.loged}/>
-        <Login/>
+          <UpperBar logedAc={this.state.logedAc} loged={this.state.loged} />
+          <Login  settingState={this.settingState}/>
+        </>
+      );
+    }
+    const RegisterPage = () => {
+      return (
+        <>
+          <UpperBar logedAc={this.state.logedAc} loged={this.state.loged} />
+          <Register  settingState={this.settingState}/>
         </>
       );
     }
     console.log(this.state.users);
     return (
       <div className="App">
-      <Route exact path='/' component={HomePage} />
-      <Route exact path='/weight' component={WeightPage} />
-      <Route exact path='/goals' component={GoalsPage} />
-      <Route exact path='/login' component={LoginPage} />
-      <Route exact path='/goals/nutrition' component={NutritionPage} />
+        <Route exact path='/' component={HomePage} />
+        <Route exact path='/weight' component={WeightPage} />
+        <Route exact path='/goals' component={GoalsPage} />
+        <Route exact path='/login' component={LoginPage} />
+        <Route exact path='/register' component={RegisterPage} />
+        <Route exact path='/goals/nutrition' component={NutritionPage} />
       </div>
     );
   }
-  
+
 }
 
 export default App;
