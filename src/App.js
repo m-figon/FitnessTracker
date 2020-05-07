@@ -15,9 +15,9 @@ class App extends Component {
     super();
     this.state = {
       users: [],
-      logedId: 0,
       loged: false,
-      logedAc: ""
+      logedAc: "",
+      logedId: null
     }
     this.settingState=this.settingState.bind(this);
   }
@@ -28,17 +28,19 @@ class App extends Component {
         users: data
       }));
   }
-  settingState(array1, value1, array2, value2) {
+  settingState(array1, value1, array2, value2,array3,value3) {
     this.setState({
       [array1]: value1,
-      [array2]: value2
+      [array2]: value2,
+      [array3]: value3
     })
   }
   render() {
+    console.log(this.state.users);
     const HomePage = () => {
       return (
         <>
-          <UpperBar logedAc={this.state.logedAc} loged={this.state.loged} />
+          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
           <Home />
         </>
       );
@@ -46,15 +48,15 @@ class App extends Component {
     const WeightPage = () => {
       return (
         <>
-          <UpperBar logedAc={this.state.logedAc} loged={this.state.loged} />
-          <Weight />
+          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
+          <Weight logedAc={this.state.logedAc}/>
         </>
       );
     }
     const GoalsPage = () => {
       return (
         <>
-          <UpperBar logedAc={this.state.logedAc} loged={this.state.loged} />
+          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
           <Goals users={this.state.users} id={this.state.logedId} />
         </>
       );
@@ -62,7 +64,7 @@ class App extends Component {
     const NutritionPage = () => {
       return (
         <>
-          <UpperBar logedAc={this.state.logedAc} loged={this.state.loged} />
+          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
           <Nutrition users={this.state.users} id={this.state.logedId} />
         </>
       );
@@ -70,7 +72,7 @@ class App extends Component {
     const LoginPage = () => {
       return (
         <>
-          <UpperBar logedAc={this.state.logedAc} loged={this.state.loged} />
+          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
           <Login  settingState={this.settingState}/>
         </>
       );
@@ -78,12 +80,11 @@ class App extends Component {
     const RegisterPage = () => {
       return (
         <>
-          <UpperBar logedAc={this.state.logedAc} loged={this.state.loged} />
+          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
           <Register  settingState={this.settingState}/>
         </>
       );
     }
-    console.log(this.state.users);
     return (
       <div className="App">
         <Route exact path='/' component={HomePage} />

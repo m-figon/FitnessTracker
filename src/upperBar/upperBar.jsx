@@ -5,17 +5,20 @@ class UpperBar extends Component {
     constructor() {
         super();
         this.state = {
-            signId: ""
+            signId: "",
+            loginOperation: ""
         }
     }
     componentDidMount() {
         if(this.props.loged){
             this.setState({
-                signId: "visibleSign"
+                signId: "visibleSign",
+                loginOperation: <Link to="/" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><h1 onClick={()=>this.props.settingState("loged",false,"logedAc","","logedId",null)}>Log out</h1></Link>
             })
         }else{
             this.setState({
-                signId: "hiddenSign"
+                signId: "hiddenSign",
+                loginOperation: <Link to="/login" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><h1>Log in</h1></Link>
             })
         }
     }
@@ -33,8 +36,7 @@ class UpperBar extends Component {
                         <Link to="/account" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><h1>{this.props.logedAc}</h1></Link>
                         <h1 id="gray">|</h1>
                         </div>
-                        
-                        <Link to="/login" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><h1>Log In</h1></Link>
+                        {this.state.loginOperation}
                         <h1 id="gray">|</h1>
                         <Link to="/register" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><h1>Sign Up</h1></Link>
                     </div>

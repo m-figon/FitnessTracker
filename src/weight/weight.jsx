@@ -22,7 +22,7 @@ class Weight extends Component {
         })
     }
     componentDidMount() {
-        fetch('http://localhost:3000/GogobatmanWeight')
+        fetch('http://localhost:3000/'+this.props.logedAc+'Weight')
             .then(response => response.json())
             .then(data => this.setState({
                 weightArray: data
@@ -56,7 +56,7 @@ class Weight extends Component {
             }
         }
         if(dateExists && this.state.weight!==""){
-            fetch('http://localhost:3000/GogobatmanWeight/'+existingId, {
+            fetch('http://localhost:3000/'+this.props.logedAc+'Weight/'+existingId, {
             method: 'PUT',
             body: JSON.stringify({
                 year: this.state.year,
@@ -69,7 +69,7 @@ class Weight extends Component {
             }
         })
         }else if(!dateExists && oldestDate && this.state.weight!==""){
-            fetch('http://localhost:3000/GogobatmanWeight', {
+            fetch('http://localhost:3000/'+this.props.logedAc+'Weight', {
             method: 'POST',
             body: JSON.stringify({
                 year: this.state.year,
@@ -86,49 +86,53 @@ class Weight extends Component {
         window.location.reload();
     }
     render() {
-        for (let i = 1; i < 31; i++) {
-            if (i < 10) {
-                this.state.days.push(<option value={i}>0{i}</option>)
-            } else {
-                this.state.days.push(<option value={i}>{i}</option>)
+        if(this.props.logedAc!==""){
+            for (let i = 1; i < 31; i++) {
+                if (i < 10) {
+                    this.state.days.push(<option value={i}>0{i}</option>)
+                } else {
+                    this.state.days.push(<option value={i}>{i}</option>)
+                }
             }
-        }
-        for (let i = 1; i < 13; i++) {
-            this.state.months.push(<option value={i}>{this.state.monthsNames[i]}</option>)
-        }
-        for (let i = 2020; i >= 1920; i--) {
-            this.state.years.push(<option value={i}>{i}</option>)
-        }
-        return (
-            <div className="weight">
-                <div className="weight-line">
-                    <h1>Please enter date</h1>
-                    <select value={this.state.day} onChange={(e) => this.inputChange(e, "day")}>
-                        <option value="none">Day</option>
-                        {this.state.days}}
-                    </select>
-                    <select value={this.state.month} onChange={(e) => this.inputChange(e, "month")}>
-                        <option value="none">Month</option>
-                        {this.state.months}}
-                    </select>
-                    <select value={this.state.year} onChange={(e) => this.inputChange(e, "year")}>
-                        <option value="none">Year</option>
-                        {this.state.years}}
-                    </select>
+            for (let i = 1; i < 13; i++) {
+                this.state.months.push(<option value={i}>{this.state.monthsNames[i]}</option>)
+            }
+            for (let i = 2020; i >= 1920; i--) {
+                this.state.years.push(<option value={i}>{i}</option>)
+            }
+            return (
+                <div className="weight">
+                    <div className="weight-line">
+                        <h1>Please enter date</h1>
+                        <select value={this.state.day} onChange={(e) => this.inputChange(e, "day")}>
+                            <option value="none">Day</option>
+                            {this.state.days}}
+                        </select>
+                        <select value={this.state.month} onChange={(e) => this.inputChange(e, "month")}>
+                            <option value="none">Month</option>
+                            {this.state.months}}
+                        </select>
+                        <select value={this.state.year} onChange={(e) => this.inputChange(e, "year")}>
+                            <option value="none">Year</option>
+                            {this.state.years}}
+                        </select>
+                    </div>
+                    <div className="weight-line">
+                        <h1>Please enter weight of the day</h1>
+                        <input type="text" value={this.state.weight} onChange={(e) => this.inputChange(e, "weight")}></input>
+                    </div>
+                    <button onClick={()=>this.addWeight()}>Add</button>
+                    <br></br>
+                    <div className="weight-chart">
+                        <WeightChart weight={this.state.weightArray}/>
+                    </div>
                 </div>
-                <div className="weight-line">
-                    <h1>Please enter weight of the day</h1>
-                    <input type="text" value={this.state.weight} onChange={(e) => this.inputChange(e, "weight")}></input>
-                </div>
-                <button onClick={()=>this.addWeight()}>Add</button>
-                <br></br>
-                <div className="weight-chart">
-                    <WeightChart weight={this.state.weightArray}/>
-                </div>
-            </div>
-        )
+            )
+    
+        }else{
+            return(null);
+        }
     }
-
 }
 
 export default Weight
