@@ -10,14 +10,15 @@ import Goals from './goals/goals.jsx';
 import Nutrition from './nutrition/nutrition.jsx';
 import Login from './login/login.jsx';
 import Register from './register/register.jsx';
+import Food from './food/food.jsx';
 class App extends Component {
   constructor() {
     super();
     this.state = {
       users: [],
-      loged: false,
-      logedAc: "",
-      logedId: null
+      loged: true,
+      logedAc: "SlickJoe",
+      logedId: 0
     }
     this.settingState=this.settingState.bind(this);
   }
@@ -69,6 +70,14 @@ class App extends Component {
         </>
       );
     }
+    const FoodPage = () => {
+      return (
+        <>
+          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
+          <Food logedAc={this.state.logedAc}/>
+        </>
+      );
+    }
     const LoginPage = () => {
       return (
         <>
@@ -90,6 +99,7 @@ class App extends Component {
         <Route exact path='/' component={HomePage} />
         <Route exact path='/weight' component={WeightPage} />
         <Route exact path='/goals' component={GoalsPage} />
+        <Route exact path='/food' component={FoodPage} />
         <Route exact path='/login' component={LoginPage} />
         <Route exact path='/register' component={RegisterPage} />
         <Route exact path='/goals/nutrition' component={NutritionPage} />
