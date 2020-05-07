@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import './nutrition.css';
+import { Link } from 'react-router-dom';
 class nutrition extends Component {
     constructor() {
         super();
         this.state = {
+            users: [],
             calories: 0,
             carbs: 0,
             fats: 0,
@@ -11,12 +13,14 @@ class nutrition extends Component {
         }
     }
     componentDidMount() {
-        this.setState({
-            calories: this.props.users[this.props.id].calories,
-            carbs: this.props.users[this.props.id].carbs,
-            fats: this.props.users[this.props.id].fats,
-            protein: this.props.users[this.props.id].protein,
-        })
+        if(this.props.users[this.props.id]){
+            this.setState({
+                calories: this.props.users[this.props.id].calories,
+                carbs: this.props.users[this.props.id].carbs,
+                fats: this.props.users[this.props.id].fats,
+                protein: this.props.users[this.props.id].protein,
+            })
+        }
     }
     inputChange(e, array) {
         this.setState({
@@ -48,7 +52,8 @@ class nutrition extends Component {
 
     }
     render() {
-        let optionsArray = [];
+        if(this.props.users[this.props.id]){
+            let optionsArray = [];
         for (let i = 0; i < 21; i++) {
             optionsArray.push(<option value={i * 5}>{i * 5}%</option>);
         }
@@ -80,10 +85,14 @@ class nutrition extends Component {
                     {line("Protein", Math.ceil(this.props.users[this.props.id].calories * this.props.users[this.props.id].protein / 100 / 4) + " g", this.state.protein, "protein")}
 
                 </div>
-                <button onClick={() => this.changeCalories()}>Save Changes</button>
+                <Link to="/goals" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><button onClick={() => this.changeCalories()}>Save Changes</button></Link>
             </div>
 
         )
+        }else{
+            return(null);
+        }
+        
     }
 }
 

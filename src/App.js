@@ -22,6 +22,7 @@ class App extends Component {
     this.settingState=this.settingState.bind(this);
   }
   componentDidMount() {
+    console.log('app.js mountin')
     fetch('http://localhost:3000/users')
       .then(response => response.json())
       .then(data => this.setState({
@@ -36,7 +37,6 @@ class App extends Component {
     })
   }
   render() {
-    console.log(this.state.users);
     const HomePage = () => {
       return (
         <>
@@ -57,7 +57,7 @@ class App extends Component {
       return (
         <>
           <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
-          <Goals users={this.state.users} id={this.state.logedId} />
+          <Goals id={this.state.logedId} />
         </>
       );
     }

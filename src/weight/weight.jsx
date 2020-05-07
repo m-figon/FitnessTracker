@@ -83,7 +83,6 @@ class Weight extends Component {
         })
         }
         
-        window.location.reload();
     }
     render() {
         if(this.props.logedAc!==""){

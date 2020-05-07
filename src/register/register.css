@@ -45,6 +45,9 @@
     border-radius: 0.3rem;
     width: 60%;
 }
+.register-content button:hover{
+    cursor: pointer;
+}
 #hidden{
     display: none;
 }

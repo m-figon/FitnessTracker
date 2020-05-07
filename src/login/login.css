@@ -43,6 +43,9 @@
     border: 1.4px solid black;
     border-radius: 0.3rem;
 }
+.login-content button:hover{
+    cursor: pointer;
+}
 #hidden{
     display: none;
 }
