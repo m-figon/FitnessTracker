@@ -73,11 +73,20 @@
     border-radius: 0.3rem;
     width: 1.4rem;
     height: 1.4rem;
-
 }
 .desc button:hover,
-.gray-desc button:hover{
+.gray-desc button:hover,
+.food-content-2 button:hover{
     cursor: pointer;
+}
+.food-content-2 button{
+    margin-top: 2vh;
+    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
+    color:black;
+    border: 1.4px solid black;
+    border-radius: 0.3rem;
+    width: 8rem;
+    height:2rem;
 }
 .gray-desc,
 .longer-gray-desc{

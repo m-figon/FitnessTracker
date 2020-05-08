@@ -99,7 +99,7 @@ class App extends Component {
       return (
         <>
           <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
-          <AddFood/>
+          <AddFood logedAc={this.state.logedAc}/>
         </>
       );
     }
