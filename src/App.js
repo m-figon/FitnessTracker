@@ -11,6 +11,7 @@ import Nutrition from './nutrition/nutrition.jsx';
 import Login from './login/login.jsx';
 import Register from './register/register.jsx';
 import Food from './food/food.jsx';
+import AddFood from './food/addFood.jsx';
 class App extends Component {
   constructor() {
     super();
@@ -94,12 +95,21 @@ class App extends Component {
         </>
       );
     }
+    const AddMeal = () => {
+      return (
+        <>
+          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
+          <AddFood/>
+        </>
+      );
+    }
     return (
       <div className="App">
         <Route exact path='/' component={HomePage} />
         <Route exact path='/weight' component={WeightPage} />
         <Route exact path='/goals' component={GoalsPage} />
         <Route exact path='/food' component={FoodPage} />
+        <Route exact path='/food/add' component={AddMeal} />
         <Route exact path='/login' component={LoginPage} />
         <Route exact path='/register' component={RegisterPage} />
         <Route exact path='/goals/nutrition' component={NutritionPage} />

@@ -65,12 +65,49 @@
     color:black;
     border: 1.4px solid black;
     border-radius: 0.3rem;
-    width: 60%;
 }
-.desc button:hover{
+.gray-desc button{
+    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
+    color:black;
+    border: 1.4px solid black;
+    border-radius: 0.3rem;
+    width: 1.4rem;
+    height: 1.4rem;
+
+}
+.desc button:hover,
+.gray-desc button:hover{
     cursor: pointer;
 }
 .gray-desc,
 .longer-gray-desc{
     background-color: rgb(243, 243, 243);
+}
+.meal-one-line{
+    height: 2rem;
+    width: 40rem;
+    background-color: rgb(243, 243, 243);
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5vh;
+}
+.meal-one-line input[type=text]{
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+    width: 5rem;
+}
+.meal-one-line h1{
+    margin-left: 1rem;
+}
+.left-side{
+    display: flex;
+    align-items: center;
+    width:100%;
+    justify-content: flex-start;
+}
+.right-side{
+    display: flex;
+    align-items: center;
+    width:100%;
+    justify-content: flex-end;
 }
