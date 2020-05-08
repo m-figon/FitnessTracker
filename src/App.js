@@ -74,7 +74,7 @@ class App extends Component {
       return (
         <>
           <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
-          <Food logedAc={this.state.logedAc}/>
+          <Food logedAc={this.state.logedAc} id={this.state.logedId} users={this.state.users}/>
         </>
       );
     }

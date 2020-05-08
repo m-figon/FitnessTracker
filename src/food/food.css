@@ -7,8 +7,7 @@
 .food-content{
     width:50rem;
     height:20rem;
-    border: 2px solid black;
-    display: flex;
+        display: flex;
     flex-direction: column;
 }
 .food h1{
@@ -19,20 +18,26 @@
 }
 .desc,
 .longer-gray-desc{
-    border: 0.1px solid white;
+    border: 0.03px solid white;
     width:25rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 2rem;
+}
+.desc h2{
+    color:rgb(59, 110, 177);
+}
+.desc h1{
+    color:rgb(59, 110, 177);
 }
 .blue-desc,
 .gray-desc,
 .white-desc{
     width:5rem;
     height: 2rem;
-    border: 0.1px solid white;
+    border: 0.03px solid white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,8 +57,20 @@
     margin: 0;
     padding: 0;
 }
-
+.desc button{
+    margin-top: 1rem;
+    margin-left: 2rem;
+    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
+    height: 1.5rem;
+    color:black;
+    border: 1.4px solid black;
+    border-radius: 0.3rem;
+    width: 60%;
+}
+.desc button:hover{
+    cursor: pointer;
+}
 .gray-desc,
 .longer-gray-desc{
-    background-color: rgb(201, 200, 200);
+    background-color: rgb(243, 243, 243);
 }
