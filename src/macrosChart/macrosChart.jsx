@@ -11,14 +11,14 @@ class MacrosChart extends Component {
             datasets: [{
                 data: [this.props.users[this.props.id].carbs, this.props.users[this.props.id].fats, this.props.users[this.props.id].protein],
                 backgroundColor: [
-                    '#fcd303',
-                    '#0bb53b',
-                    '#d4310d'
+                    '#2e6eb3',
+                    '#49c4b4',
+                    '#47bf4f'
                 ],
                 hoverBackgroundColor: [
-                    '#fcd303',
-                    '#0bb53b',
-                    '#d4310d'
+                    '#2e6eb3',
+                    '#49c4b4',
+                    '#47bf4f'
                 ]
             }]
         };

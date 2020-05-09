@@ -11,14 +11,14 @@ class FoodChart extends Component {
             datasets: [{
                 data: [this.props.carbs, this.props.fats, this.props.protein],
                 backgroundColor: [
-                    '#fc2003',
-                    '#d657f2',
-                    '#4dd1cf'
+                    '#2e6eb3',
+                    '#49c4b4',
+                    '#47bf4f'
                 ],
                 hoverBackgroundColor: [
-                    '#fc2003',
-                    '#d657f2',
-                    '#4dd1cf'
+                    '#2e6eb3',
+                    '#49c4b4',
+                    '#47bf4f'
                 ]
             }]
         };

@@ -67,6 +67,9 @@ class addFood extends Component {
                             carbs: this.state.food[this.state.id].carbs,
                             fats: this.state.food[this.state.id].fats,
                             protein: this.state.food[this.state.id].protein,
+                            year: this.props.year,
+                            month: this.props.month,
+                            day: this.props.day
                         }),
                         headers: {
                             "Content-type": "application/json; charset=UTF-8"

@@ -143,7 +143,7 @@ class Food extends Component {
                                     <h2>Meals</h2>
                                     <Link
                                         to={"/food/add"}
-                                    ><button>Add meal</button></Link>
+                                    ><button onClick={()=>this.props.settingState("day",this.state.day,"month",this.state.month,"year",this.state.year)}>Add meal</button></Link>
                                 </div>
                             </div>
                             <div className="blue-desc">

@@ -50,6 +50,9 @@
 }
 .u-left h1{
     font-size: 1.5rem;
+    font-family: 'Permanent Marker', cursive;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
 }
 .u-right{
     width: 60%;

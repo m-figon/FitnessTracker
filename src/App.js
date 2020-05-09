@@ -19,7 +19,10 @@ class App extends Component {
       users: [],
       loged: true,
       logedAc: "SlickJoe",
-      logedId: 0
+      logedId: 0,
+      day: null,
+      month: null,
+      year: null
     }
     this.settingState=this.settingState.bind(this);
   }
@@ -75,7 +78,7 @@ class App extends Component {
       return (
         <>
           <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
-          <Food logedAc={this.state.logedAc} id={this.state.logedId} users={this.state.users}/>
+          <Food settingState={this.settingState} logedAc={this.state.logedAc} id={this.state.logedId} users={this.state.users}/>
         </>
       );
     }
@@ -99,7 +102,7 @@ class App extends Component {
       return (
         <>
           <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
-          <AddFood logedAc={this.state.logedAc}/>
+          <AddFood settingsState={this.settingState} logedAc={this.state.logedAc} day={this.state.day} month={this.state.month} year={this.state.year}/>
         </>
       );
     }
