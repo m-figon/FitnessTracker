@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './food.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 class addFood extends Component {
     constructor() {
         super();
@@ -52,11 +52,12 @@ class addFood extends Component {
     addMeal() {
         if (this.state.id) {
             console.log('postin1')
-            let checkboxes = [this.state.checkbox0, this.state.checkbox1, this.state.checkbox3, this.state.checkbox4, this.state.checkbox5, this.state.checkbox6];
+            let checkboxes = [this.state.checkbox0, this.state.checkbox1, this.state.checkbox2, this.state.checkbox3, this.state.checkbox4, this.state.checkbox5, this.state.checkbox6];
             let inputs = [this.state.input0, this.state.input1, this.state.input2, this.state.input3, this.state.input4, this.state.input5, this.state.input6];
             for (let i = 0; i < inputs.length; i++) {
                 if (checkboxes[i]) {
-                    console.log('postin')
+                    console.log(checkboxes[i])          
+                    console.log(inputs[i])
                     fetch('http://localhost:3000/' + this.props.logedAc + 'Meals', {
                         method: 'POST',
                         body: JSON.stringify({

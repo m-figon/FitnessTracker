@@ -6,7 +6,10 @@ class Food extends Component {
     constructor() {
         super();
         this.state = {
-            meals: []
+            meals: [],
+            day: 2,
+            month: 5,
+            year: 2020,
         }
     }
     componentDidMount() {
@@ -16,6 +19,35 @@ class Food extends Component {
                 .then(data => this.setState({
                     meals: data
                 }));
+        }
+    }
+    changeDate(operation) {
+        if (operation === "+") {
+            if (this.state.day < 30) {
+                this.setState({
+                    day: this.state.day + 1
+                })
+            } else if (this.state.day >= 30) {
+                if (this.state.month < 12) {
+                    this.setState({
+                        day: 1,
+                        month: this.state.month + 1
+                    })
+                }
+            }
+        } else if (operation === "-") {
+            if (this.state.day > 1) {
+                this.setState({
+                    day: this.state.day - 1
+                })
+            } else if (this.state.day === 1) {
+                if (this.state.month > 1) {
+                    this.setState({
+                        month: this.state.month - 1,
+                        day: 30
+                    })
+                }
+            }
         }
     }
     deleteMeal(id) {
@@ -60,38 +92,51 @@ class Food extends Component {
             let fatsNumber = 0;
             let proteinNumber = 0;
             let mealsArray = this.state.meals.map((item) => {
-                caloriesNumber += parseInt(item.quantity) * parseInt(item.calories);
-                carbsNumber += parseInt(item.quantity) * parseInt(item.carbs);
-                fatsNumber += parseInt(item.quantity) * parseInt(item.fats);
-                proteinNumber += parseInt(item.quantity) * parseInt(item.protein);
-                return (<div className="one-line">
-                    <div className="longer-gray-desc">
-                        <h1>{item.meal}</h1>
-                    </div>
-                    <div className="gray-desc">
-                        <h1>{item.quantity}</h1>
-                    </div>
-                    <div className="gray-desc">
-                        <h1>{parseInt(item.quantity) * parseInt(item.calories)}</h1>
-
-                    </div>
-                    <div className="gray-desc">
-                        <h1>{parseInt(item.quantity) * parseInt(item.carbs)}</h1>
-                    </div>
-                    <div className="gray-desc">
-                        <h1>{parseInt(item.quantity) * parseInt(item.fats)}</h1>
-                    </div>
-                    <div className="gray-desc">
-                        <h1>{parseInt(item.quantity) * parseInt(item.protein)}</h1>
-                    </div>
-                    <div className="gray-desc">
-                        <button onClick={() => this.deleteMeal(item.id)}>x</button>
-                    </div>
-                </div>);
+                if (parseInt(item.day) === this.state.day && parseInt(item.month) === this.state.month && parseInt(item.year) === this.state.year) {
+                    caloriesNumber += parseInt(item.quantity) * parseInt(item.calories);
+                    carbsNumber += parseInt(item.quantity) * parseInt(item.carbs);
+                    fatsNumber += parseInt(item.quantity) * parseInt(item.fats);
+                    proteinNumber += parseInt(item.quantity) * parseInt(item.protein);
+                    return (<div className="one-line">
+                        <div className="longer-gray-desc">
+                            <h1>{item.meal}</h1>
+                        </div>
+                        <div className="gray-desc">
+                            <h1>{item.quantity}</h1>
+                        </div>
+                        <div className="gray-desc">
+                            <h1>{parseInt(item.quantity) * parseInt(item.calories)}</h1>
+                        </div>
+                        <div className="gray-desc">
+                            <h1>{parseInt(item.quantity) * parseInt(item.carbs)}</h1>
+                        </div>
+                        <div className="gray-desc">
+                            <h1>{parseInt(item.quantity) * parseInt(item.fats)}</h1>
+                        </div>
+                        <div className="gray-desc">
+                            <h1>{parseInt(item.quantity) * parseInt(item.protein)}</h1>
+                        </div>
+                        <div className="gray-desc">
+                            <button onClick={() => this.deleteMeal(item.id)}></button>
+                        </div>
+                    </div>);
+                }
             })
             return (
                 <div className="food">
                     <div className="food-content">
+                        <div className="date-line">
+                            <h2>Your Food Diary For:</h2>
+                            <div className="calendar">
+                                <div id="left-arrow" className="calendar-wings" onClick={() => { this.changeDate('-') }}>
+                                </div>
+                                <h1>{this.state.day}/</h1>
+                                <h1>{this.state.month}/</h1>
+                                <h1>{this.state.year}</h1>
+                                <div id="right-arrow" className="calendar-wings" onClick={() => { this.changeDate('+') }}>
+                                </div>
+                            </div>
+                        </div>
                         <div className="one-line">
                             <div className="desc">
                                 <div className="one-line">
@@ -124,9 +169,9 @@ class Food extends Component {
                             </div>
                         </div>
                         {mealsArray}
-                        {this.oneLine("Totals",caloriesNumber,carbsNumber,fatsNumber,proteinNumber)}
-                        {this.oneLine("Your Daily Goal",this.props.users[this.props.id].calories,Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].carbs) / 100 / 4),Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].fats) / 100 / 9),Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].protein) / 100 / 4))}
-                        {this.oneLine("Remaining",parseInt(this.props.users[this.props.id].calories) - caloriesNumber,Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].carbs) / 100 / 4) - carbsNumber,Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].fats) / 100 / 9) - fatsNumber,Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].protein) / 100 / 4) - proteinNumber)}
+                        {this.oneLine("Totals", caloriesNumber, carbsNumber, fatsNumber, proteinNumber)}
+                        {this.oneLine("Your Daily Goal", this.props.users[this.props.id].calories, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].carbs) / 100 / 4), Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].fats) / 100 / 9), Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].protein) / 100 / 4))}
+                        {this.oneLine("Remaining", parseInt(this.props.users[this.props.id].calories) - caloriesNumber, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].carbs) / 100 / 4) - carbsNumber, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].fats) / 100 / 9) - fatsNumber, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].protein) / 100 / 4) - proteinNumber)}
                     </div>
                     <FoodChart carbs={Math.round(carbsNumber * 4 * 100 / caloriesNumber)} fats={Math.round(fatsNumber * 9 * 100 / caloriesNumber)} protein={Math.round(proteinNumber * 4 * 100 / caloriesNumber)} />
                 </div>
