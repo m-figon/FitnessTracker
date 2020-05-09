@@ -12,6 +12,7 @@ import Login from './login/login.jsx';
 import Register from './register/register.jsx';
 import Food from './food/food.jsx';
 import AddFood from './food/addFood.jsx';
+import Exercise from './exercise/exercise.jsx';
 class App extends Component {
   constructor() {
     super();
@@ -106,12 +107,21 @@ class App extends Component {
         </>
       );
     }
+    const ExcercisePage = () => {
+      return (
+        <>
+          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
+          <Exercise settingState={this.settingState} logedAc={this.state.logedAc} id={this.state.logedId} users={this.state.users}/>
+        </>
+      );
+    }
     return (
       <div className="App">
         <Route exact path='/' component={HomePage} />
         <Route exact path='/weight' component={WeightPage} />
         <Route exact path='/goals' component={GoalsPage} />
         <Route exact path='/food' component={FoodPage} />
+        <Route exact path='/exercise' component={ExcercisePage} />
         <Route exact path='/food/add' component={AddMeal} />
         <Route exact path='/login' component={LoginPage} />
         <Route exact path='/register' component={RegisterPage} />

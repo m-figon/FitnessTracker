@@ -1,0 +1,178 @@
+.food{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 3vh;
+}
+.food-content{
+    width:50rem;
+    height:20rem;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5vh;
+}
+.food h1{
+    font-size: 0.8rem;
+}
+.food h2{
+    font-size: 1.3rem;
+}
+.desc,
+.longer-gray-desc{
+    border: 0.03px solid white;
+    width:25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 2rem;
+}
+.desc h2{
+    color:rgb(59, 110, 177);
+}
+.desc h1{
+    color:rgb(59, 110, 177);
+}
+.blue-desc-exercise,
+.gray-desc-exercise,
+.white-desc-exercise{
+    width:10rem;
+    height: 2rem;
+    border: 0.03px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.blue-desc-exercise{
+    background-color: rgb(59, 110, 177);
+    
+}
+.blue-desc-exercise h1{
+    color: white;
+}
+.blue-desc-exercise h1,
+.gray-desc-exercise h1,
+.white-desc-exercise h1{
+    margin: 0;
+    padding: 0;
+}
+.desc button{
+    margin-top: 1rem;
+    margin-left: 2rem;
+    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
+    height: 1.5rem;
+    color:black;
+    border: 1.4px solid black;
+    border-radius: 0.3rem;
+}
+.gray-desc-exercise button{
+    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
+    color:black;
+    border: 1.4px solid black;
+    border-radius: 0.3rem;
+    width: 1.4rem;
+    height: 1.4rem;
+}
+.desc button:hover,
+.gray-desc button:hover,
+.food-content-2 button:hover{
+    cursor: pointer;
+}
+.food-content-2 button{
+    margin-top: 2vh;
+    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
+    color:black;
+    border: 1.4px solid black;
+    border-radius: 0.3rem;
+    width: 8rem;
+    height:2rem;
+}
+.gray-desc-exercise,
+.longer-gray-desc{
+    background-color: rgb(243, 243, 243);
+}
+.meal-one-line{
+    height: 2rem;
+    width: 40rem;
+    background-color: rgb(243, 243, 243);
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5vh;
+}
+.meal-one-line input[type=text]{
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+    width: 5rem;
+}
+.meal-one-line h1{
+    margin-left: 1rem;
+}
+.left-side{
+    display: flex;
+    align-items: center;
+    width:100%;
+    justify-content: flex-start;
+}
+.right-side{
+    display: flex;
+    align-items: center;
+    width:100%;
+    justify-content: flex-end;
+}
+.date-line{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1vh;
+    border-bottom: 2px solid rgb(218, 217, 217);
+}
+.calendar{
+    margin-left: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(59, 110, 177);
+    color: white;
+    height: 2rem;
+    width: 6rem;
+    border-radius: 0.5rem;
+}
+.calendar-wings{
+    background-color: white;
+    width:50%;
+    height: 1rem;
+}
+.calendar-wings:hover{
+    cursor: pointer;
+}
+.gray-desc-exercise button{
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    background-color: rgb(59, 110, 177);
+}
+.gray-desc-exercise button:hover{
+   cursor: pointer;
+}
+#left-arrow{
+    margin-left: 0.5rem;
+    clip-path: polygon(25% 0%, 25% 0, 25% 100%, 25% 100%, 0% 50%);
+}
+#right-arrow{
+    margin-right: 0.5rem;
+    clip-path: polygon(75% 0, 75% 0%, 100% 50%, 75% 100%, 75% 100%);
+}
+.date-line select{
+    margin-left: 0.5vw;
+    background-color: rgb(240, 240, 240);
+    color:black;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.5rem;
+}
+.date-line h2{
+    color:rgb(59, 110, 177);
+}
