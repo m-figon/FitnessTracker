@@ -10,6 +10,13 @@ class Exercise extends Component {
             day: 2,
             month: 5,
             year: 2020,
+            name1: "",
+            minutes: "",
+            caloriesBurned: "",
+            name2: "",
+            sets: "",
+            reps: "",
+            weight: ""
         }
     }
     componentDidMount() {
@@ -19,10 +26,10 @@ class Exercise extends Component {
                 .then(data => this.setState({
                     cardio: data
                 })).then(fetch('http://localhost:3000/' + this.props.logedAc + 'StrengthExercise')
-                .then(response => response.json())
-                .then(data => this.setState({
-                    strength: data
-                })))
+                    .then(response => response.json())
+                    .then(data => this.setState({
+                        strength: data
+                    })))
         }
     }
     changeDate(operation) {
@@ -54,9 +61,9 @@ class Exercise extends Component {
             }
         }
     }
-    deleteExercise(id,exercise,array) {
+    deleteExercise(id, exercise, array) {
         if (this.props.logedAc) {
-            fetch('http://localhost:3000/' + this.props.logedAc + exercise+"/" + id, {
+            fetch('http://localhost:3000/' + this.props.logedAc + exercise + "/" + id, {
                 method: 'DELETE'
             }).then(fetch('http://localhost:3000/' + this.props.logedAc + exercise)
                 .then(response => response.json())
@@ -64,6 +71,66 @@ class Exercise extends Component {
                     [array]: data
                 })))
         }
+    }
+    inputChange(e, array) {
+        this.setState({
+            [array]: e.target.value
+        })
+    }
+    singleLine = (name, value) => {
+        return (
+            <div className="single-line">
+                <div className="left">
+                    <h1>{name}</h1>
+                </div>
+                <div className="right">
+                    <input type="text" value={eval("this.state." + value)} onChange={(e) => this.inputChange(e, value)}></input>
+                </div>
+            </div>
+        );
+    }
+    addExercise(type) {
+        if (type === "Cardio") {
+            fetch('http://localhost:3000/' + this.props.logedAc + type + "Exercise", {
+                method: 'POST',
+                body: JSON.stringify({
+                    name: this.state.name1,
+                    minutes: this.state.minutes,
+                    calories: this.state.caloriesBurned,
+                    year: this.state.year,
+                    month: this.state.month,
+                    day: this.state.day
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            }).then(fetch('http://localhost:3000/' + this.props.logedAc + type + "Exercise")
+            .then(response => response.json())
+            .then(data => this.setState({
+                cardio: data
+            })))
+        } else if (type === "Strength") {
+            fetch('http://localhost:3000/' + this.props.logedAc + type + "Exercise", {
+                method: 'POST',
+                body: JSON.stringify({
+                    name: this.state.name2,
+                    reps: this.state.reps,
+                    sets: this.state.sets,
+                    weight: this.state.weight,
+                    year: this.state.year,
+                    month: this.state.month,
+                    day: this.state.day
+                }),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            }).then(fetch('http://localhost:3000/' + this.props.logedAc + type + "Exercise")
+            .then(response => response.json())
+            .then(data => this.setState({
+                strength: data
+            })))
+        }
+        window.location.reload(); //should work without it
     }
     render() {
         if (this.props.logedAc && this.props.users) {
@@ -77,10 +144,10 @@ class Exercise extends Component {
                             <h1>{item.minutes}</h1>
                         </div>
                         <div className="gray-desc-exercise">
-                            <h1>{parseInt(item.minutes) * parseInt(item.calories)}</h1>
+                            <h1>{item.calories}</h1>
                         </div>
                         <div className="gray-desc-exercise">
-                            <button onClick={() => this.deleteExercise(item.id,"CardioExercise","cardio")}></button>
+                            <button onClick={() => this.deleteExercise(item.id, "CardioExercise", "cardio")}></button>
                         </div>
                     </div>);
                 }
@@ -101,7 +168,7 @@ class Exercise extends Component {
                             <h1>{item.weight}</h1>
                         </div>
                         <div className="gray-desc-exercise">
-                            <button onClick={() => this.deleteExercise(item.id,"StrengthExercise","strength")}></button>
+                            <button onClick={() => this.deleteExercise(item.id, "StrengthExercise", "strength")}></button>
                         </div>
                     </div>);
                 }
@@ -125,9 +192,6 @@ class Exercise extends Component {
                             <div className="desc">
                                 <div className="one-line">
                                     <h2>Cardiovascular</h2>
-                                    <Link
-                                        to={"/exercise/cardio/add"}
-                                    ><button onClick={() => this.props.settingState("day", this.state.day, "month", this.state.month, "year", this.state.year)}>Add exercise</button></Link>
                                 </div>
                             </div>
                             <div className="blue-desc-exercise">
@@ -140,6 +204,13 @@ class Exercise extends Component {
                             </div>
                         </div>
                         {cardioArray}
+                        <div className="adding-exercise-line">
+                            {this.singleLine("Name", 'name1')}
+                            {this.singleLine("Minutes", 'minutes')}
+                            {this.singleLine("Calories Burned", 'caloriesBurned')}
+                            <button onClick={() => this.addExercise("Cardio")}>Add exercise</button>
+
+                        </div>
                     </div>
                     <div className="food-content">
                         <div className="one-line">
@@ -147,7 +218,7 @@ class Exercise extends Component {
                                 <div className="one-line">
                                     <h2>Strength Training</h2>
                                     <Link
-                                        to={"/exercise/strength/add"}
+                                        to={"/exercise/add/strength"}
                                     ><button onClick={() => this.props.settingState("day", this.state.day, "month", this.state.month, "year", this.state.year)}>Add exercise</button></Link>
                                 </div>
                             </div>
@@ -164,7 +235,13 @@ class Exercise extends Component {
                             </div>
                         </div>
                         {strengthArray}
-
+                        <div className="adding-exercise-line">
+                            {this.singleLine("Name", "name2")}
+                            {this.singleLine("Sets", 'sets')}
+                            {this.singleLine("Reps", 'reps')}
+                            {this.singleLine("Weight", 'weight')}
+                            <button onClick={() => this.addExercise("Strength")}>Add exercise</button>
+                        </div>
                     </div>
                 </div>
             )

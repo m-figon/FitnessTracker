@@ -111,7 +111,7 @@ class App extends Component {
       return (
         <>
           <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
-          <Exercise settingState={this.settingState} logedAc={this.state.logedAc} id={this.state.logedId} users={this.state.users}/>
+          <Exercise settingState={this.settingState} logedAc={this.state.logedAc} id={this.state.logedId} users={this.state.users} day={this.state.day} month={this.state.month} year={this.state.year}/>
         </>
       );
     }

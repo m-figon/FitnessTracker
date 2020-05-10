@@ -176,3 +176,41 @@
 .date-line h2{
     color:rgb(59, 110, 177);
 }
+.adding-exercise-line{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 2vh;
+}
+.adding-exercise-line input{
+    margin-left: 0.5rem;
+    height: 1.2rem;
+    background-color: rgb(240, 240, 240);
+    border: 3px 3px solid rgb(190, 190, 190);
+    padding-left: 0.2vw;
+    margin-bottom: 1rem;
+}
+.adding-exercise-line button{
+    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
+    color:black;
+    border: 1.4px solid black;
+    border-radius: 0.3rem;
+    width: 8rem;
+    height:2rem;
+}
+.single-line{
+    display: flex;
+    align-items: center;
+    width: 15rem;
+}
+.left{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+}
+.right{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
