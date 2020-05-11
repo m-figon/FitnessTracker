@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './exercise.css';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 class Exercise extends Component {
     constructor() {
         super();
@@ -20,6 +21,12 @@ class Exercise extends Component {
         }
     }
     componentDidMount() {
+        let currentDate=moment().format('L');
+            this.setState({
+                month: parseInt(currentDate.substr(0, 2)),
+                day: parseInt(currentDate.substr(3, 2)),
+                year: parseInt(currentDate.substr(6, 4))
+            })
         if (this.props.logedAc) {
             fetch('http://localhost:3000/' + this.props.logedAc + 'CardioExercise')
                 .then(response => response.json())

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './food.css';
 import FoodChart from './foodChart.jsx';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 class Food extends Component {
     constructor() {
         super();
@@ -20,6 +21,13 @@ class Food extends Component {
                     meals: data
                 }));
         }
+        //05/11/2020
+        let currentDate=moment().format('L');
+            this.setState({
+                month: parseInt(currentDate.substr(0, 2)),
+                day: parseInt(currentDate.substr(3, 2)),
+                year: parseInt(currentDate.substr(6, 4))
+            })
     }
     changeDate(operation) {
         if (operation === "+") {
