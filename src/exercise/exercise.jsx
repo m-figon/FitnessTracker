@@ -30,6 +30,17 @@ class Exercise extends Component {
                     .then(data => this.setState({
                         strength: data
                     })))
+            setInterval(() => {
+                fetch('http://localhost:3000/' + this.props.logedAc + 'CardioExercise')
+                    .then(response => response.json())
+                    .then(data => this.setState({
+                        cardio: data
+                    })).then(fetch('http://localhost:3000/' + this.props.logedAc + 'StrengthExercise')
+                        .then(response => response.json())
+                        .then(data => this.setState({
+                            strength: data
+                        })))
+            }, 2000)
         }
     }
     changeDate(operation) {
@@ -65,11 +76,12 @@ class Exercise extends Component {
         if (this.props.logedAc) {
             fetch('http://localhost:3000/' + this.props.logedAc + exercise + "/" + id, {
                 method: 'DELETE'
-            }).then(fetch('http://localhost:3000/' + this.props.logedAc + exercise)
+            })
+            fetch('http://localhost:3000/' + this.props.logedAc + exercise)
                 .then(response => response.json())
                 .then(data => this.setState({
                     [array]: data
-                })))
+                }))
         }
     }
     inputChange(e, array) {
@@ -105,10 +117,13 @@ class Exercise extends Component {
                     "Content-type": "application/json; charset=UTF-8"
                 }
             }).then(fetch('http://localhost:3000/' + this.props.logedAc + type + "Exercise")
-            .then(response => response.json())
-            .then(data => this.setState({
-                cardio: data
-            })))
+                .then(response => response.json())
+                .then(data => this.setState({
+                    cardio: data,
+                    name1: "",
+                    minutes: "",
+                    caloriesBurned: ""
+                })))
         } else if (type === "Strength") {
             fetch('http://localhost:3000/' + this.props.logedAc + type + "Exercise", {
                 method: 'POST',
@@ -125,12 +140,15 @@ class Exercise extends Component {
                     "Content-type": "application/json; charset=UTF-8"
                 }
             }).then(fetch('http://localhost:3000/' + this.props.logedAc + type + "Exercise")
-            .then(response => response.json())
-            .then(data => this.setState({
-                strength: data
-            })))
+                .then(response => response.json())
+                .then(data => this.setState({
+                    strength: data,
+                    name2: "",
+                    sets: "",
+                    reps: "",
+                    weight: ""
+                })))
         }
-        window.location.reload(); //should work without it
     }
     render() {
         if (this.props.logedAc && this.props.users) {

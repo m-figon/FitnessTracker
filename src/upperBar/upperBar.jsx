@@ -32,7 +32,7 @@ class UpperBar extends Component {
                     </div>
                     <div className="u-right">
                         <div id={this.state.signId} className="visibility-div">
-                        <h1>Hi,</h1>
+                        <h1 id="welcome">Hi,</h1>
                         <Link to="/account" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><h1>{this.props.logedAc}</h1></Link>
                         <h1 id="gray">|</h1>
                         </div>
@@ -65,7 +65,7 @@ class UpperBar extends Component {
                     <div className="navigation-bar">
                         <div className="slogan">
                             <h1>Fitness starts with being consistent!</h1>
-                            <Link to="/register" style={{ textDecoration: 'none', color: "white" }}><h1>Join now fo free</h1></Link>
+                            <Link to="/register" style={{ textDecoration: 'none', color: "white" }}><h1>Join now for free</h1></Link>
                         </div>
                     </div>
                 </>

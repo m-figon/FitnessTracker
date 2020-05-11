@@ -65,6 +65,12 @@
     font-size: 1rem;
     margin-left: 0.5vw;
 }
+.u-right h1:hover{
+    color: #f18c2d;
+}
+#welcome:hover{
+    color: rgb(76, 145, 235);
+}
 #visibleSign{
     display: flex;
 }
