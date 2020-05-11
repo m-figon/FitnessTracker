@@ -24,21 +24,21 @@
 .ad-div3:hover{
     transition-duration: 0.3s;
     width:15.5rem;
-    height:25.5rem;
+    height:22.5rem;
 }
 .ad-div1,
 .ad-div3{
     width:15rem;
-    height:25rem;
+    height:22rem;
 }
 .ad-div2{
     width:17rem;
-    height:35rem;
+    height:31rem;
 }
 .ad-div2:hover{
     transition-duration: 0.3s;
     width:17.5rem;
-    height:35.5rem;
+    height:31.5rem;
 }
 .ad-div1 h1,
 .ad-div2 h1,
