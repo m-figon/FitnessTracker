@@ -16,20 +16,30 @@
 .goals-content button:hover{
     cursor: pointer;
     background: linear-gradient(to bottom, rgb(236, 236, 236)75%, rgb(216, 216, 216) 100%);
-
 }
 .nutrition-settings{
-    margin-top: 2vh;
-    width: 30%;
+    margin-top: 2rem;
+    width: 27rem;
     height: 25vh;
-    margin-bottom: 3vh;
+    margin-bottom: 1rem;
 }
-.settings-line{
+.settings-line,
+.topic-line{
     background-color: rgb(240, 240, 240);
     color:black;
     border: 1px solid rgb(201, 200, 200);
-    margin-top: 0.2vh;
     display: flex;
+}
+.topic-line{
+    background-color: rgb(59, 110, 177);
+    color: white;
+    border: 0px solid black;
+}
+.topic-line .settings-left h1{
+    font-size: 1.2rem;
+}
+.topic-line .settings-right button{
+    height: 1.5rem;
 }
 .settings-left{
     width:100%;
@@ -37,7 +47,6 @@
     justify-content: flex-start;
     align-items: center;
     margin-left: 0.5vw;
-
 }
 .settings-right{
     width:100%;
@@ -50,15 +59,35 @@
 .settings-right select{
     height: 1.5rem;
 }
-.settings-right input{
-    width:3vw;
+.settings-right input,
+.settings-right select{
+    width:3.5rem;
     text-align: center;
+    margin-left: 0.5vw;
+    background-color: white;
+    color:black;
+    border: 1px solid black;
+    border-radius: 0.3rem;
+}
+.settings-left .line-column h1{
+    font-size: 0.9rem;
+}
+.settings-left .line-column h2{
+    font-size: 1rem;
+}
+#green-id{
+    font-size: 1.5rem;
+    color: rgb(34, 148, 34);
+}
+#red-id{
+    font-size: 1.5rem;
+    color: rgb(224, 15, 15);
 }
 .settings-left h1{
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     margin-left: 1vw;
 }
 .settings-right h1{
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     margin-right: 1vw;
 }

@@ -152,12 +152,14 @@
     background-color: rgb(59, 110, 177);
 }
 #left-arrow{
-    margin-left: 0.5rem;
-    clip-path: polygon(25% 0%, 25% 0, 25% 100%, 25% 100%, 0% 50%);
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    clip-path: polygon(100% 0, 100% 1%, 100% 100%, 100% 100%, 0% 50%);
 }
 #right-arrow{
-    margin-right: 0.5rem;
-    clip-path: polygon(75% 0, 75% 0%, 100% 50%, 75% 100%, 75% 100%);
+    margin-right: 0.3rem;
+    margin-left: 0.3rem;
+    clip-path: polygon(0% 0%, 0 0, 100% 50%, 0 100%, 0% 100%);
 }
 .date-line select{
     margin-left: 0.5vw;

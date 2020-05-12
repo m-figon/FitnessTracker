@@ -109,6 +109,9 @@
 .meal-one-line h1{
     margin-left: 1rem;
 }
+.adding-exercise-line .single-line h1{
+    font-size: 1.1rem;
+}
 .left-side{
     display: flex;
     align-items: center;
@@ -155,12 +158,14 @@
    cursor: pointer;
 }
 #left-arrow{
-    margin-left: 0.5rem;
-    clip-path: polygon(25% 0%, 25% 0, 25% 100%, 25% 100%, 0% 50%);
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    clip-path: polygon(100% 0, 100% 1%, 100% 100%, 100% 100%, 0% 50%);
 }
 #right-arrow{
-    margin-right: 0.5rem;
-    clip-path: polygon(75% 0, 75% 0%, 100% 50%, 75% 100%, 75% 100%);
+    margin-right: 0.3rem;
+    margin-left: 0.3rem;
+    clip-path: polygon(0% 0%, 0 0, 100% 50%, 0 100%, 0% 100%);
 }
 .date-line select{
     margin-left: 0.5vw;
@@ -194,7 +199,7 @@
 .adding-exercise-line button{
     background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
     color:black;
-    border: 1.4px solid rgb(190, 190, 190);
+    border: 1.4px solid rgb(155, 155, 155);
     border-radius: 0.3rem;
     width: 8rem;
     height:2rem;

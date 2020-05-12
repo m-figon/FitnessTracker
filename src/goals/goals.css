@@ -7,20 +7,20 @@
     height: 100%;
 }
 .nutrition-goal{
-    margin-top: 5vh;
-    width: 30%;
-    height: 20vh;
+    margin-top: 3rem;
+    width: 27rem;
+    height: 12rem;
     border: 2px solid black;
 }
 .fitness-goal{
-    margin-top: 5vh;
-    width: 30%;
-    height: 16vh;
+    margin-top: 3rem;
+    width: 27rem;
+    height: 10rem;
     border: 2px solid black;
 }
 .header,
 .line{
-    height: 4vh;
+    height: 2.35rem;
     width:100%;
     display: flex;
     align-items: center;
@@ -46,11 +46,11 @@
 }
 .header-left h1,
 .line-left h1{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-left: 1vw;
 }
 .line-right h1{
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-right: 1vw;
 }
 .header button{
