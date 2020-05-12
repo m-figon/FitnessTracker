@@ -194,10 +194,14 @@
 .adding-exercise-line button{
     background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
     color:black;
-    border: 1.4px solid black;
+    border: 1.4px solid rgb(190, 190, 190);
     border-radius: 0.3rem;
     width: 8rem;
     height:2rem;
+}
+.adding-exercise-line button:hover{
+    cursor: pointer;
+    background: linear-gradient(to bottom, rgb(236, 236, 236)75%, rgb(216, 216, 216) 100%);
 }
 .single-line{
     display: flex;

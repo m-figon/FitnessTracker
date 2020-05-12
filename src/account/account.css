@@ -5,17 +5,17 @@
     align-items: center;
 }
 .account-display{
+    margin-top: 5rem;
     width:100vw;
     height:80vh;
-    justify-content: center;
+    justify-content: flex-start;
 }
 .account-display h1{
     font-size: 1rem;
-    
 }
 .account{
     width:40rem;
-    height:25rem;
+    height:17rem;
     background-color: rgb(243, 243, 243);
 }
 .topic{
@@ -37,15 +37,25 @@
     'left  bottom bottom bottom bottom bottom';
 }
 .left-part{
-    padding-top: 1rem;
+    padding-top: 0.1rem;
+    margin-left: 1rem;
     grid-area: left;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
+}
+.left-part h1{
+    margin-bottom: 0.2rem;
 }
 #green{
     color: #85C400;
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#red-sign{
+    color: rgb(196, 0, 0);
     font-size: 3rem;
     margin-top: 0;
     margin-bottom: 0;
@@ -55,7 +65,7 @@
     height: 2rem;
     width: 7rem;
     color:black;
-    border: 1.4px solid black;
+    border: 1.4px solid rgb(155, 155, 155);
     border-radius: 0.3rem;
     margin-right: 1rem;
 }
@@ -76,9 +86,24 @@
 .single-line h1{
     margin-left: 1rem;
 }
+#scale{
+    margin-right: 2rem;
+    height:3rem;
+    width:3rem;
+}
+#scale:hover{
+    cursor: pointer;
+}
+.single-column-right{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
 .img-border{
-    height: 5rem;
-    width:5rem;
+    height: 3rem;
+    width:3rem;
     background-color: white;
     border: 3px solid rgba(52, 97, 155,1);
     border-radius: 50%;
@@ -86,10 +111,11 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    margin-left:1rem;
 }
 .left-part img{
-    height: 5rem;
-    width:5rem;
+    height: 3rem;
+    width:3rem;
 }
 .up-part{
     margin-left: 1rem;
@@ -101,13 +127,26 @@
     align-items: flex-start;
 }
 .down-part{
-    margin-top: -2.5rem;
+    margin-top: 0rem;
     margin-left: 1rem;
     grid-area: bottom;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+}
+.down-part h1{
+    font-size: 1rem;
+}
+.single-column{
+    display: flex;
+    flex-direction: column;
+
+}
+.down-part h2{
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    margin-bottom: 0;
 }
 .down-part img{
     margin-left: 1rem;

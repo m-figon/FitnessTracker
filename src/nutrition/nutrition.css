@@ -7,13 +7,16 @@
     height: 100%;
 }
 .goals-content button{
-    background-color: rgb(240, 240, 240);
+    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
     color:black;
-    border: 1px solid black;
+    border: 1px solid rgb(190, 190, 190);
     border-radius: 0.3rem;
+    height: 2rem;
 }
 .goals-content button:hover{
     cursor: pointer;
+    background: linear-gradient(to bottom, rgb(236, 236, 236)75%, rgb(216, 216, 216) 100%);
+
 }
 .nutrition-settings{
     margin-top: 2vh;

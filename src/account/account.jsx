@@ -7,7 +7,7 @@ import bar1 from "./25.png";
 import bar2 from "./50.png";
 import bar3 from "./75.png";
 import bar4 from "./100.png";
-
+import biceps from './biceps.png';
 class account extends Component {
     constructor() {
         super();
@@ -23,7 +23,7 @@ class account extends Component {
             tmpMonth: 0,
             tmpDay: 0,
             tmpName: "",
-            img: null
+            img: null,
         }
     }
     componentDidMount() {
@@ -89,8 +89,9 @@ class account extends Component {
         console.log(this.state.weight);
         console.log(this.state.cardio);
         console.log(this.state.strength);
-        let caloriesNumber=0;
-        let imgSrc=""
+        let caloriesNumber = 0;
+        let imgSrc = ""
+        let remainingId;
         if (this.state.weight && this.state.cardio && this.state.strength && this.state.meals) {
             for (const item of this.state.cardio) {
                 this.sorter(item);
@@ -99,22 +100,27 @@ class account extends Component {
                 this.sorter(item);
             }
             for (const item of this.state.meals) {
-                if(parseInt(item.day)===parseInt(this.state.day) && parseInt(item.month)===parseInt(this.state.month) && parseInt(item.year)===parseInt(this.state.year)){
+                if (parseInt(item.day) === parseInt(this.state.day) && parseInt(item.month) === parseInt(this.state.month) && parseInt(item.year) === parseInt(this.state.year)) {
                     caloriesNumber += parseInt(item.quantity) * parseInt(item.calories);
                 }
             }
-            if(caloriesNumber/this.props.users[this.props.id].calories<0.25){
-                imgSrc=bar0;
-            }else if(caloriesNumber/this.props.users[this.props.id].calories>=0.25 && caloriesNumber/this.props.users[this.props.id].calories<0.50){
-                imgSrc=bar1;
-            }else if(caloriesNumber/this.props.users[this.props.id].calories>=0.50 && caloriesNumber/this.props.users[this.props.id].calories<0.75){
-                imgSrc=bar2;
-            }else if(caloriesNumber/this.props.users[this.props.id].calories>=0.75 && caloriesNumber/this.props.users[this.props.id].calories<1.0){
-                imgSrc=bar3;
-            }else if(caloriesNumber/this.props.users[this.props.id].calories>=1.0){
-                imgSrc=bar4;
+            if (caloriesNumber / this.props.users[this.props.id].calories < 0.25) {
+                imgSrc = bar0;
+            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.25 && caloriesNumber / this.props.users[this.props.id].calories < 0.50) {
+                imgSrc = bar1;
+            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.50 && caloriesNumber / this.props.users[this.props.id].calories < 0.75) {
+                imgSrc = bar2;
+            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.75 && caloriesNumber / this.props.users[this.props.id].calories < 1.0) {
+                imgSrc = bar3;
+            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 1.0) {
+                imgSrc = bar4;
             }
             console.log(this.state.tmpDay + "/" + this.state.tmpMonth + "/" + this.state.tmpYear + " " + this.state.tmpName);
+            if(parseInt(this.props.users[this.props.id].calories) - parseInt(caloriesNumber)>=0){
+                remainingId="green"
+            }else{
+                remainingId="red-sign";
+            }
             return (
                 <div className="account-display" >
                     <div className="account">
@@ -125,7 +131,7 @@ class account extends Component {
                             <div className="left-part">
                                 <h1>{this.props.users[this.props.id].name}</h1>
                                 <div className="img-border">
-                                    <img alt="" src="https://robohash.org/77set=set10"></img>
+                                    <img alt="" src={biceps} alt=""></img>
                                 </div>
                                 <h1>Last weight:</h1>
                                 <h1>{this.state.weight[this.state.weight.length - 1].weight} kg</h1>
@@ -136,10 +142,10 @@ class account extends Component {
                                 <div className="single-line">
                                     <h1>Calories Remaining</h1>
                                     <Link to="/goals/nutrition" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><h1>Change</h1></Link>
-                                    <h1>{this.state.day+"/"+this.state.month+"/"+this.state.year}</h1>
+                                    <h1>{this.state.day + "/" + this.state.month + "/" + this.state.year}</h1>
                                 </div>
                                 <div className="single-line">
-                                    <h1 id="green">{parseInt(this.props.users[this.props.id].calories)-parseInt(caloriesNumber)}</h1>
+                                    <h1 id={remainingId}>{parseInt(this.props.users[this.props.id].calories) - parseInt(caloriesNumber)}</h1>
                                     <div className="right-buttons">
                                         <Link to="/exercise" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><button>Add Exercise</button></Link>
                                         <Link to="/food/add" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><button>Add Food</button></Link>
@@ -149,14 +155,27 @@ class account extends Component {
                             <div className="down-part">
                                 <img src={imgSrc} alt=""></img>
                                 <div className="single-line">
+                                <div className="single-column">
+                                    <h2>{this.props.users[this.props.id].calories}</h2>
                                     <h1>Goal</h1>
+                                </div>
+                                <div className="single-column">
+                                    <h2>-</h2>
+                                </div>
+                                <div className="single-column">
+                                    <h2>{caloriesNumber}</h2>
                                     <h1>Food</h1>
+                                </div>
+                                <div className="single-column">
+                                    <h2>=</h2>
+                                </div>
+                                <div className="single-column">
+                                    <h2>{parseInt(this.props.users[this.props.id].calories) - parseInt(caloriesNumber)}</h2>
                                     <h1>Remaining</h1>
                                 </div>
-                                <div className="single-line">
-                                    <h1>{this.props.users[this.props.id].calories}</h1>
-                                    <h1>{caloriesNumber}</h1>
-                                    <h1>{parseInt(this.props.users[this.props.id].calories)-parseInt(caloriesNumber)}</h1>
+                                <div className="single-column-right">
+                                <Link to="/weight" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><img id="scale" alt="" src="https://www.transparentpng.com/thumb/weight-scale/weighing-scale-other-icons-png-22.png"></img></Link>
+                                </div>
                                 </div>
                             </div>
 

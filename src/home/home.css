@@ -20,12 +20,7 @@
     flex-direction: column;
     border: 2px solid black;
 }
-.ad-div1:hover,
-.ad-div3:hover{
-    transition-duration: 0.3s;
-    width:15.5rem;
-    height:22.5rem;
-}
+
 .ad-div1,
 .ad-div3{
     width:15rem;
@@ -35,11 +30,7 @@
     width:17rem;
     height:31rem;
 }
-.ad-div2:hover{
-    transition-duration: 0.3s;
-    width:17.5rem;
-    height:31.5rem;
-}
+
 .ad-div1 h1,
 .ad-div2 h1,
 .ad-div3 h1{
