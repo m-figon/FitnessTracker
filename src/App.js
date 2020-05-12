@@ -120,7 +120,7 @@ class App extends Component {
       return (
         <>
           <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
-          <Account id={this.state.logedId} users={this.state.users}/>
+          <Account id={this.state.logedId} users={this.state.users} logedAc={this.state.logedAc}/>
         </>
       );
     }
