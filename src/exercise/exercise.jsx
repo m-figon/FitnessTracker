@@ -234,7 +234,6 @@ class Exercise extends Component {
                             {this.singleLine("Minutes", 'minutes')}
                             {this.singleLine("Calories Burned", 'caloriesBurned')}
                             <button onClick={() => this.addExercise("Cardio")}>Add exercise</button>
-
                         </div>
                     </div>
                     <div className="food-content">
@@ -242,9 +241,7 @@ class Exercise extends Component {
                             <div className="desc">
                                 <div className="one-line">
                                     <h2>Strength Training</h2>
-                                    <Link
-                                        to={"/exercise/add/strength"}
-                                    ><button onClick={() => this.props.settingState("day", this.state.day, "month", this.state.month, "year", this.state.year)}>Add exercise</button></Link>
+                                    <Link to={"/exercise/add/strength"}><button onClick={() => this.props.settingState("day", this.state.day, "month", this.state.month, "year", this.state.year)}>Add exercise</button></Link>
                                 </div>
                             </div>
                             <div className="blue-desc-exercise">

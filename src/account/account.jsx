@@ -3,10 +3,17 @@ import './account.css';
 import { Link } from 'react-router-dom';
 import moment from 'moment'
 import bar0 from "./0.png";
-import bar1 from "./25.png";
-import bar2 from "./50.png";
-import bar3 from "./75.png";
-import bar4 from "./100.png";
+import bar1 from "./10.png";
+import bar2 from "./20.png";
+import bar3 from "./30.png";
+import bar4 from "./40.png";
+import bar5 from "./50.png";
+import bar6 from "./60.png";
+import bar7 from "./70.png";
+import bar8 from "./80.png";
+import bar9 from "./90.png";
+import bar10 from "./100.png";
+
 import biceps from './biceps.png';
 class account extends Component {
     constructor() {
@@ -55,8 +62,6 @@ class account extends Component {
             }));
     }
     sorter(element) {
-        console.log('element');
-        console.log(element);
         if (parseInt(element.year) > this.state.tmpYear) {
             this.setState({
                 tmpYear: element.year,
@@ -64,7 +69,6 @@ class account extends Component {
                 tmpDay: element.day,
                 tmpName: element.name
             })
-
         } else if (parseInt(element.year) === this.state.tmpYear) {
             if (parseInt(element.month) > this.state.tmpMonth) {
                 this.setState({
@@ -86,9 +90,6 @@ class account extends Component {
         }
     }
     render() {
-        console.log(this.state.weight);
-        console.log(this.state.cardio);
-        console.log(this.state.strength);
         let caloriesNumber = 0;
         let imgSrc = ""
         let remainingId;
@@ -104,18 +105,30 @@ class account extends Component {
                     caloriesNumber += parseInt(item.quantity) * parseInt(item.calories);
                 }
             }
-            if (caloriesNumber / this.props.users[this.props.id].calories < 0.25) {
+            if (caloriesNumber / this.props.users[this.props.id].calories < 0.1) {
                 imgSrc = bar0;
-            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.25 && caloriesNumber / this.props.users[this.props.id].calories < 0.50) {
+            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.1 && caloriesNumber / this.props.users[this.props.id].calories < 0.2) {
                 imgSrc = bar1;
-            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.50 && caloriesNumber / this.props.users[this.props.id].calories < 0.75) {
+            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.2 && caloriesNumber / this.props.users[this.props.id].calories < 0.3) {
                 imgSrc = bar2;
-            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.75 && caloriesNumber / this.props.users[this.props.id].calories < 1.0) {
+            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.3 && caloriesNumber / this.props.users[this.props.id].calories < 0.4) {
                 imgSrc = bar3;
-            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 1.0) {
+            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.3 && caloriesNumber / this.props.users[this.props.id].calories < 0.4) {
                 imgSrc = bar4;
+            }else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.4 && caloriesNumber / this.props.users[this.props.id].calories < 0.5) {
+                imgSrc = bar5;
+            }else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.5 && caloriesNumber / this.props.users[this.props.id].calories < 0.6) {
+                imgSrc = bar6;
+            }else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.6 && caloriesNumber / this.props.users[this.props.id].calories < 0.7) {
+                imgSrc = bar7;
+            }else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.7 && caloriesNumber / this.props.users[this.props.id].calories < 0.8) {
+                imgSrc = bar8;
+            }else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.8 && caloriesNumber / this.props.users[this.props.id].calories < 0.9) {
+                imgSrc = bar9;
+            }else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.94) {
+                imgSrc = bar10;
             }
-            console.log(this.state.tmpDay + "/" + this.state.tmpMonth + "/" + this.state.tmpYear + " " + this.state.tmpName);
+            //console.log(this.state.tmpDay + "/" + this.state.tmpMonth + "/" + this.state.tmpYear + " " + this.state.tmpName);
             if(parseInt(this.props.users[this.props.id].calories) - parseInt(caloriesNumber)>=0){
                 remainingId="green"
             }else{
@@ -178,7 +191,6 @@ class account extends Component {
                                 </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

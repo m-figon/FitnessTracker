@@ -6,20 +6,6 @@ class addFood extends Component {
         super();
         this.state = {
             food: [],
-            input0: "0",
-            checkbox0: false,
-            input1: "0",
-            checkbox1: false,
-            input2: "0",
-            checkbox2: false,
-            input3: "0",
-            checkbox3: false,
-            input4: "0",
-            checkbox4: false,
-            input5: "0",
-            checkbox5: false,
-            input6: "0",
-            checkbox6: false,
             id: null
         }
         this.input = React.createRef();
@@ -29,7 +15,14 @@ class addFood extends Component {
             .then(response => response.json())
             .then(data => this.setState({
                 food: data
-            }));
+            })).then(()=>{
+                for (const item of this.state.food) {
+                    this.setState({
+                        ["checkbox"+item.id]: false,
+                        ["input"+item.id]: "0",
+                    })
+                }
+            })   
     }
     inputChange(e, array) {
         this.setState({
@@ -37,27 +30,30 @@ class addFood extends Component {
         })
     }
     checkboxChange(e, array, idValue) {
+        for (const item of this.state.food) {
+            this.setState({
+                ["checkbox"+item.id]: false,
+            })
+        }
         this.setState({
-            checkbox0: false,
-            checkbox1: false,
-            checkbox2: false,
-            checkbox3: false,
-            checkbox4: false,
-            checkbox5: false,
-            checkbox6: false,
             [array]: !(eval("this.state." + array)),
             id: idValue
         })
     }
     addMeal() {
         if (this.state.id) {
-            console.log('postin1')
-            let checkboxes = [this.state.checkbox0, this.state.checkbox1, this.state.checkbox2, this.state.checkbox3, this.state.checkbox4, this.state.checkbox5, this.state.checkbox6];
-            let inputs = [this.state.input0, this.state.input1, this.state.input2, this.state.input3, this.state.input4, this.state.input5, this.state.input6];
+            let checkboxes = [];
+            let inputs = [];
+            for(const item of this.state.food){
+                checkboxes.push(eval("this.state.checkbox"+item.id));
+                inputs.push(eval("this.state.input"+item.id));
+            }
+            //console.log(checkboxes);
+            //console.log(inputs);
             for (let i = 0; i < inputs.length; i++) {
                 if (checkboxes[i]) {
-                    console.log(checkboxes[i])          
-                    console.log(inputs[i])
+                    //console.log(checkboxes[i])          
+                    //console.log(inputs[i])
                     fetch('http://localhost:3000/' + this.props.logedAc + 'Meals', {
                         method: 'POST',
                         body: JSON.stringify({
@@ -98,7 +94,7 @@ class addFood extends Component {
                 <div className="food-content-2">
                     <h2>Add Food</h2>
                     {foods}
-                    <Link to={"/food"}><button onClick={() => this.addMeal()}>Add Checked</button></Link>
+                    <Link to="/food"><button onClick={() => this.addMeal()}>Add Checked</button></Link>
                 </div>
             </div>
         )
