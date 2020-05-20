@@ -16,17 +16,17 @@
     margin-left: 0.5vw;
     background-color: rgb(240, 240, 240);
     color:black;
-    border: 1px solid black;
+    border: 1px solid #d2d2d2;
     border-radius: 0.3rem;
 }
 .weight button{
-    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
-    border: 1px solid rgb(155, 155, 155);
+    background-color: #ebebeb;
+    border: 1px solid #d2d2d2;
     height: 1.5rem;
 }
 .weight button:hover{
     cursor: pointer;
-    background: linear-gradient(to bottom, rgb(236, 236, 236)75%, rgb(216, 216, 216) 100%);
+    background-color: #e4e2e2;
 }
 .weight-line h1{
     font-size: 1rem;

@@ -22,6 +22,7 @@
     width:100%;
     height: 3rem;
     background-color: rgba(52, 97, 155,1);
+    border-radius: 5px;
 }
 .topic h1{
     margin-left: 1rem;
@@ -61,7 +62,7 @@
     margin-bottom: 0;
 }
 .up-part button{
-    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
+    background-color: #ebebeb;
     height: 2rem;
     width: 7rem;
     color:black;
@@ -71,7 +72,7 @@
 }
 .up-part button:hover{
     cursor: pointer;
-    background: linear-gradient(to bottom, rgb(236, 236, 236)75%, rgb(216, 216, 216) 100%);
+    background-color: #e4e2e2;
 }
 .right-buttons{
     width:100%;

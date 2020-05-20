@@ -94,7 +94,7 @@ class addFood extends Component {
                 <div className="food-content-2">
                     <h2>Add Food</h2>
                     {foods}
-                    <Link to="/food"><button onClick={() => this.addMeal()}>Add Checked</button></Link>
+                    <Link to="/food"><button id="button" onClick={() => this.addMeal()}>Add Checked</button></Link>
                 </div>
             </div>
         )

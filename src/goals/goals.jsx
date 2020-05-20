@@ -42,7 +42,7 @@ class goals extends Component {
                                     <h1>Daily Nutrition Goals</h1>
                                 </div>
                                 <div className="header-right">
-                                    <Link to="/goals/nutrition" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><button>Edit</button></Link>
+                                    <Link to="/goals/nutrition" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><button id="button2">Edit</button></Link>
                                 </div>
                             </div>
                             {line("Calories", null, this.state.users[this.props.id].calories)}

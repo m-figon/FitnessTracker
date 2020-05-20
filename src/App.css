@@ -11,3 +11,14 @@ body{
   width:50vw;
   height:50vh;
 }
+#button,#button2{
+  border: 1px solid #d2d2d2;
+  background-color: #ebebeb;
+}
+#button:hover
+,#button2:hover{
+  background-color: #e4e2e2;
+}
+#button2{
+  height:1.3rem;
+}

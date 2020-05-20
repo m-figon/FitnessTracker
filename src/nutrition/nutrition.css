@@ -7,15 +7,15 @@
     height: 100%;
 }
 .goals-content button{
-    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
+    background-color: #ebebeb;
     color:black;
-    border: 1px solid rgb(190, 190, 190);
+    border: 1px solid #d2d2d2;
     border-radius: 0.3rem;
     height: 2rem;
 }
 .goals-content button:hover{
     cursor: pointer;
-    background: linear-gradient(to bottom, rgb(236, 236, 236)75%, rgb(216, 216, 216) 100%);
+    background-color: #e4e2e2;
 }
 .nutrition-settings{
     margin-top: 2rem;
@@ -27,8 +27,9 @@
 .topic-line{
     background-color: rgb(240, 240, 240);
     color:black;
-    border: 1px solid rgb(201, 200, 200);
+    border-bottom: 1px solid rgb(255, 255, 255);
     display: flex;
+    border-radius: 5px;
 }
 .topic-line{
     background-color: rgb(59, 110, 177);
@@ -66,7 +67,7 @@
     margin-left: 0.5vw;
     background-color: white;
     color:black;
-    border: 1px solid black;
+    border: 1px solid #d2d2d2;
     border-radius: 0.3rem;
 }
 .settings-left .line-column h1{

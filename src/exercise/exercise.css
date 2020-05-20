@@ -26,6 +26,7 @@
     justify-content: center;
     align-items: flex-start;
     height: 2rem;
+    border-radius: 5px;
 }
 .desc h2{
     color:rgb(59, 110, 177);
@@ -43,11 +44,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+    border-radius: 5px;
+    margin-left: 1px;
 }
 .blue-desc-exercise{
     background-color: rgb(59, 110, 177);
-    
+    border-radius: 5px;
+    margin-left: 1px;
 }
 .blue-desc-exercise h1{
     color: white;
@@ -61,14 +64,14 @@
 .desc button{
     margin-top: 1rem;
     margin-left: 2rem;
-    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
+    background-color: #ebebeb;
     height: 1.5rem;
     color:black;
     border: 1.4px solid black;
     border-radius: 0.3rem;
 }
 .gray-desc-exercise button{
-    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
+    background-color: #ebebeb;
     color:black;
     border: 1.4px solid black;
     border-radius: 0.3rem;
@@ -82,7 +85,7 @@
 }
 .food-content-2 button{
     margin-top: 2vh;
-    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
+    background-color: #ebebeb;
     color:black;
     border: 1.4px solid black;
     border-radius: 0.3rem;
@@ -192,21 +195,22 @@
     margin-left: 0.5rem;
     height: 1.2rem;
     background-color: rgb(240, 240, 240);
-    border: 3px 3px solid rgb(190, 190, 190);
+    border: 1px solid #d2d2d2;
+    border-radius: 5px;
     padding-left: 0.2vw;
     margin-bottom: 1rem;
 }
 .adding-exercise-line button{
-    background: linear-gradient(to bottom, rgb(240, 240, 240)75%, rgb(190, 190, 190) 100%);
+    background-color: #ebebeb;
     color:black;
-    border: 1.4px solid rgb(155, 155, 155);
+    border: 1px solid #d2d2d2;
     border-radius: 0.3rem;
     width: 8rem;
     height:2rem;
 }
 .adding-exercise-line button:hover{
     cursor: pointer;
-    background: linear-gradient(to bottom, rgb(236, 236, 236)75%, rgb(216, 216, 216) 100%);
+    background-color: #e4e2e2;
 }
 .single-line{
     display: flex;

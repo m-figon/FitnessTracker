@@ -160,8 +160,8 @@ class account extends Component {
                                 <div className="single-line">
                                     <h1 id={remainingId}>{parseInt(this.props.users[this.props.id].calories) - parseInt(caloriesNumber)}</h1>
                                     <div className="right-buttons">
-                                        <Link to="/exercise" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><button>Add Exercise</button></Link>
-                                        <Link to="/food/add" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><button>Add Food</button></Link>
+                                        <Link to="/exercise" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><button id="button">Add Exercise</button></Link>
+                                        <Link to="/food/add" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><button id="button">Add Food</button></Link>
                                     </div>
                                 </div>
                             </div>
