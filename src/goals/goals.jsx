@@ -18,7 +18,7 @@ class goals extends Component {
             }));
     }
     render() {
-        if(this.state.users[this.props.id]){
+        if (this.state.users[this.props.id]) {
             const line = (type, value1, value2) => {
                 return (<div className="line">
                     <div className="line-left">
@@ -46,19 +46,21 @@ class goals extends Component {
                                 </div>
                             </div>
                             {line("Calories", null, this.state.users[this.props.id].calories)}
-                            {line("Carbohydrates", Math.ceil(this.state.users[this.props.id].calories * this.state.users[this.props.id].carbs / 100 / 4) + " g", this.state.users[this.props.id].carbs+"%")}
-                            {line("Fats", Math.ceil(this.state.users[this.props.id].calories * this.state.users[this.props.id].fats / 100 / 9) + " g", this.state.users[this.props.id].fats+"%")}
-                            {line("Protein", Math.ceil(this.state.users[this.props.id].calories * this.state.users[this.props.id].protein / 100 / 4) + " g", this.state.users[this.props.id].protein+"%")}
+                            {line("Carbohydrates", Math.ceil(this.state.users[this.props.id].calories * this.state.users[this.props.id].carbs / 100 / 4) + " g", this.state.users[this.props.id].carbs + "%")}
+                            {line("Fats", Math.ceil(this.state.users[this.props.id].calories * this.state.users[this.props.id].fats / 100 / 9) + " g", this.state.users[this.props.id].fats + "%")}
+                            {line("Protein", Math.ceil(this.state.users[this.props.id].calories * this.state.users[this.props.id].protein / 100 / 4) + " g", this.state.users[this.props.id].protein + "%")}
                         </div>
-                        <MacrosChart users={this.state.users} id={this.props.id} />
+                        <div className="food-chart">
+                            <MacrosChart users={this.state.users} id={this.props.id} />
+                        </div>
                     </div>
                 </>
             )
-        }else{
-            return(null);
+        } else {
+            return (null);
         }
-        }
-        
+    }
+
 
 }
 

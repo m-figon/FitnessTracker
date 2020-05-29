@@ -22,3 +22,8 @@ body{
 #button2{
   height:1.3rem;
 }
+input:focus,
+select:focus,
+button:focus{
+  outline: none;
+}

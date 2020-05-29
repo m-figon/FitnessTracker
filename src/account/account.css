@@ -147,7 +147,7 @@
 .single-line{
     display: flex;
     align-items: center;
-    width: 15rem;
+    width: 100%;
 }
 .down-part h2{
     font-size: 1.5rem;
@@ -194,6 +194,10 @@
     }
     .down-part h2{
         font-size: 1.2rem;
+    }
+    #scale{
+        height: 2rem;
+        width: 2rem;
     }
 }
 @media only screen and (max-width: 450px) {

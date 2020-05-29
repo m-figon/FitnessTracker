@@ -24,7 +24,7 @@ class FoodChart extends Component {
         };
         return (
             <div>
-                <Pie width="400" data={data} />
+                <Pie width="400"  data={data} />
             </div>
         )
     }

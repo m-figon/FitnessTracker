@@ -200,7 +200,7 @@ class Exercise extends Component {
             })
             return (
                 <div className="food">
-                    <div className="food-content">
+                    <div className="excersise-content">
                         <div className="date-line">
                             <h2>Your Exercise Diary for:</h2>
                             <div className="calendar">

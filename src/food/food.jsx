@@ -181,7 +181,9 @@ class Food extends Component {
                         {this.oneLine("Your Daily Goal", this.props.users[this.props.id].calories, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].carbs) / 100 / 4), Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].fats) / 100 / 9), Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].protein) / 100 / 4))}
                         {this.oneLine("Remaining", parseInt(this.props.users[this.props.id].calories) - caloriesNumber, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].carbs) / 100 / 4) - carbsNumber, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].fats) / 100 / 9) - fatsNumber, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].protein) / 100 / 4) - proteinNumber)}
                     </div>
+                    <div className="food-chart">
                     <FoodChart carbs={Math.round(carbsNumber * 4 * 100 / caloriesNumber)} fats={Math.round(fatsNumber * 9 * 100 / caloriesNumber)} protein={Math.round(proteinNumber * 4 * 100 / caloriesNumber)} />
+                    </div>
                 </div>
             )
         } else {

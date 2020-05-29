@@ -1,11 +1,12 @@
 .weight-line,
 .weight{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 .weight-line{
     margin-top: 2vh;
+    width:100%;
 }
 .weight{
     flex-direction: column;
@@ -33,7 +34,20 @@
 }
 .weight-line input{
     height: 1rem;
+    width: 3rem;
 }
 .weight-chart{
     margin-top: 2vh;
+    width:30rem;
+    height:30rem;
+}
+@media only screen and (max-width: 800px) {
+    .weight-line h1{
+        font-size: 0.8rem;
+    }
+    .weight-chart{
+        margin-top: 2vh;
+        width:20rem;
+        height:20rem;
+    }
 }

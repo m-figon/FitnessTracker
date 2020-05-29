@@ -88,6 +88,12 @@
     .u-bar , .n-bar{
         width:80%;
     }
+    .slogan{
+        width:80%;
+    }
+    .slogan h1{
+        font-size: 0.8rem;
+    }
     .u-left h1{
         font-size: 1.2rem;
     }
@@ -97,5 +103,8 @@
         padding-left: 1vw;
         padding-right: 1vw;
         width:100%;
+    }
+    .slogan{
+        width:95%;
     }
 }

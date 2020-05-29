@@ -9,7 +9,7 @@
     height: 20rem;
     display: flex;
     flex-direction: column;
-    margin-bottom: 5vh;
+    margin-bottom: 2rem;
 }
 .food h1 {
     font-size: 0.8rem;
@@ -68,6 +68,10 @@
     color: black;
     border: 1px solid #d2d2d2;
     border-radius: 0.3rem;
+}
+.food-chart{
+    height:40rem;
+    width:40rem;
 }
 .gray-desc button {
     background-color: #ebebeb;
@@ -194,7 +198,7 @@
 @media only screen and (max-width: 850px) {
     .food-content {
         width: 30rem;
-        height: 20rem;
+        height: 15rem;
     }
     .food h2{
         font-size: 1rem;
@@ -210,7 +214,6 @@
 @media only screen and (max-width: 520px) {
     .food-content {
         width: 20rem;
-        height: 20rem;
     }
     .food h2{
         font-size: 0.9rem;
