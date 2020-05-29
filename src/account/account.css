@@ -144,6 +144,11 @@
     flex-direction: column;
 
 }
+.single-line{
+    display: flex;
+    align-items: center;
+    width: 15rem;
+}
 .down-part h2{
     font-size: 1.5rem;
     margin-left: 1rem;
@@ -153,4 +158,81 @@
     margin-left: 1rem;
     height: 1.5rem;
     width: 30rem;
+}
+@media only screen and (max-width: 700px) {
+    .account{
+        width:25rem;
+    }
+    .topic h1{
+        font-size: 1.0rem;
+    }
+    .left-part{
+        margin-left: 0.5rem
+    }
+    .left-part h1,
+    .up-part h1,
+    .down-part h1{
+        font-size: 0.8rem;
+    }
+    #green{
+        font-size: 2rem;
+    }
+    .down-part img{
+        height: 1.2rem;
+        width: 18rem;
+    }
+    .right-buttons{
+        margin-right: 0.5rem;
+    }
+    .up-part button {
+        height: 2rem;
+        width: 4rem;
+        font-size: 0.8rem;
+    }
+    .single-line{
+        width: 90%
+    }
+    .down-part h2{
+        font-size: 1.2rem;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .account{
+        width:20rem;
+    }
+    #green{
+        font-size: 1.5rem;
+        margin-right: 0.5rem;
+    }
+    .left-part h1,
+    .up-part h1,
+    .down-part h1{
+        font-size: 0.7rem;
+    }
+    .down-part img{
+        height: 1.2rem;
+        width: 12rem;
+    }
+    .right-buttons{
+        margin-right: 0.5rem;
+    }
+    .up-part button {
+        height: 2rem;
+        width: 3.5rem;
+        font-size: 0.7rem;
+    }
+    .single-line{
+        width: 70%
+    }
+    .down-part h2{
+        font-size: 1.0rem;
+    }
+    .img-border,
+    .img-border img{
+        width: 2rem;
+        height: 2rem;
+    }
+    .single-column-right{
+        display: none;
+    }
 }

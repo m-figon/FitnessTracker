@@ -120,19 +120,19 @@ class register extends Component {
                             <h1 id={this.state.alertId}>Incorrect registration values. Please try again.</h1>
                             <h2>Your Account Information</h2>
                             <h1>Email Address:</h1>
-                            <input id={this.state.emailId} type="text" onFocus={(e) => this.focusChange(e, "emailValue", "Email Adress")} onBlur={(e) => this.blurChange(e, "emailValue", "Email Adress", null, null, "")} value={this.state.emailValue} onChange={(e) => this.inputChange(e, "emailValue")} />
+                            <input autocomplete="off" id={this.state.emailId} type="text" onFocus={(e) => this.focusChange(e, "emailValue", "Email Adress")} onBlur={(e) => this.blurChange(e, "emailValue", "Email Adress", null, null, "")} value={this.state.emailValue} onChange={(e) => this.inputChange(e, "emailValue")} />
                             <h1>Account Name:</h1>
                             <div className="one-line">
-                                <input id={this.state.accountId} type="text" onFocus={(e) => this.focusChange(e, "accountValue", "Account Name")} onBlur={(e) => this.blurChange(e, "accountValue", "Account Name", null, null, "")} value={this.state.accountValue} onChange={(e) => this.inputChange(e, "accountValue")} />
+                                <input autocomplete="off" id={this.state.accountId} type="text" onFocus={(e) => this.focusChange(e, "accountValue", "Account Name")} onBlur={(e) => this.blurChange(e, "accountValue", "Account Name", null, null, "")} value={this.state.accountValue} onChange={(e) => this.inputChange(e, "accountValue")} />
                                 <h1>4-12 signs</h1>
                             </div>
                             <h1>Password:</h1>
                             <div className="one-line">
-                                <input id={this.state.password1Id} type={this.state.password1Type} onFocus={(e) => this.focusChange(e, "password1Value", "Password", "password1Type")} onBlur={(e) => this.blurChange(e, "password1Value", "Password", "password1Type", "text", "")} value={this.state.password1Value} onChange={(e) => this.inputChange(e, "password1Value")} />
+                                <input autocomplete="off" id={this.state.password1Id} type={this.state.password1Type} onFocus={(e) => this.focusChange(e, "password1Value", "Password", "password1Type")} onBlur={(e) => this.blurChange(e, "password1Value", "Password", "password1Type", "text", "")} value={this.state.password1Value} onChange={(e) => this.inputChange(e, "password1Value")} />
                                 <h1>6-14 signs, 1 uppercase</h1>
                             </div>
                             <h1>Confirm Password:</h1>
-                            <input id={this.state.password2Id} type={this.state.password2Type} onFocus={(e) => this.focusChange(e, "password2Value", "Confirm Password", "password2Type")} onBlur={(e) => this.blurChange(e, "password2Value", "Confirm Password", "password2Type", "text", "")} value={this.state.password2Value} onChange={(e) => this.inputChange(e, "password2Value")} />
+                            <input autocomplete="off" id={this.state.password2Id} type={this.state.password2Type} onFocus={(e) => this.focusChange(e, "password2Value", "Confirm Password", "password2Type")} onBlur={(e) => this.blurChange(e, "password2Value", "Confirm Password", "password2Type", "text", "")} value={this.state.password2Value} onChange={(e) => this.inputChange(e, "password2Value")} />
                             <h1>Birth Date:</h1>
                             <div className="one-line">
                                 <select id={this.state.dayId} value={this.state.dayValue} onChange={(e) => this.inputChange(e, "dayValue")}>

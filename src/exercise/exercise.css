@@ -1,21 +1,8 @@
 .food{
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
     margin-top: 3vh;
-}
-.food-content{
-    width:50rem;
-    height:20rem;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5vh;
-}
-.food h1{
-    font-size: 0.8rem;
-}
-.food h2{
-    font-size: 1.3rem;
 }
 .desc,
 .longer-gray-desc{
@@ -62,8 +49,6 @@
     padding: 0;
 }
 .desc button{
-    margin-top: 1rem;
-    margin-left: 2rem;
     background-color: #ebebeb;
     height: 1.5rem;
     color:black;
@@ -212,7 +197,7 @@
     cursor: pointer;
     background-color: #e4e2e2;
 }
-.single-line{
+.single-ex-line{
     display: flex;
     align-items: center;
     width: 15rem;
@@ -226,4 +211,24 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
+}
+@media only screen and (max-width: 850px) {
+    .adding-exercise-line h1{
+        font-size: 0.8rem;
+    }
+    .adding-exercise-line button{
+        font-size: 0.7rem;
+        width:5rem;
+    }
+    .single-line .left h1{
+        margin-left: 0.5rem;
+        font-size: 0.8rem;
+    }
+    .single-ex-line{
+        flex-direction: column;
+    }
+    .single-ex-line .right{
+        justify-content: flex-start;
+
+    }
 }

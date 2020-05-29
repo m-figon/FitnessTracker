@@ -98,7 +98,7 @@ class Exercise extends Component {
     }
     singleLine = (name, value) => {
         return (
-            <div className="single-line">
+            <div className="single-ex-line">
                 <div className="left">
                     <h1>{name}</h1>
                 </div>
@@ -109,7 +109,7 @@ class Exercise extends Component {
         );
     }
     addExercise(type) {
-        if (type === "Cardio") {
+        if (type === "Cardio" && this.state.name1 && this.state.minutes && this.state.caloriesBurned) {
             fetch('http://localhost:3000/' + this.props.logedAc + type + "Exercise", {
                 method: 'POST',
                 body: JSON.stringify({
@@ -131,7 +131,7 @@ class Exercise extends Component {
                     minutes: "",
                     caloriesBurned: ""
                 })))
-        } else if (type === "Strength") {
+        } else if (type === "Strength" && this.state.name2 && this.state.reps &&this.state.sets && this.state.weight) {
             fetch('http://localhost:3000/' + this.props.logedAc + type + "Exercise", {
                 method: 'POST',
                 body: JSON.stringify({
@@ -241,7 +241,6 @@ class Exercise extends Component {
                             <div className="desc">
                                 <div className="one-line">
                                     <h2>Strength Training</h2>
-                                    <Link to={"/exercise/add/strength"}><button id="button" onClick={() => this.props.settingState("day", this.state.day, "month", this.state.month, "year", this.state.year)}>Add exercise</button></Link>
                                 </div>
                             </div>
                             <div className="blue-desc-exercise">

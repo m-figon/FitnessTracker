@@ -36,7 +36,7 @@ function home() {
                 <div className="benefit">
                     <h1>Calorie Goals by Meal</h1>
                 </div>
-                <h1>Quick Add Carbs, Protein and Fat</h1>
+                <h1>Quick macronutrient adding</h1>
                 <div className="benefit">
                     <h1>Ad-free</h1>
                 </div>

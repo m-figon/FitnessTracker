@@ -54,6 +54,9 @@
     text-transform: uppercase;
     text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
 }
+.u-left img{
+    height:3rem;
+}
 .u-right{
     width: 60%;
     height: 100%;
@@ -80,4 +83,19 @@
 #gray{
     color: rgb(211, 211, 211);
     font-size: 1rem;
+}
+@media only screen and (max-width: 800px) {
+    .u-bar , .n-bar{
+        width:80%;
+    }
+    .u-left h1{
+        font-size: 1.2rem;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .u-bar, .n-bar {
+        padding-left: 1vw;
+        padding-right: 1vw;
+        width:100%;
+    }
 }

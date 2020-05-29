@@ -90,3 +90,24 @@
     cursor: pointer;
     background: rgb(63, 116, 185);
 }
+@media only screen and (max-width: 600px) {
+    .ad-div1{
+        width: 10rem;
+        height: 17rem;
+    }
+    .ad-div1 h1,
+    .ad-div2 h1{
+        font-size: 0.8rem;
+    }
+    .ad-div1 h2,
+    .ad-div2 h2,
+    .ad-div1 h3,
+    .ad-div2 h3{
+        font-size: 1.5rem;
+    }
+    .ad-div2{
+        width:11rem;
+        height: 25rem;
+
+    }
+}
