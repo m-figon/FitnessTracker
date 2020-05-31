@@ -40,22 +40,22 @@ class account extends Component {
             day: parseInt(currentDate.substr(3, 2)),
             year: parseInt(currentDate.substr(6, 4))
         })
-        fetch('http://localhost:3000/' + this.props.logedAc + 'Weight')
+        fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Weight')
             .then(response => response.json())
             .then(data => this.setState({
                 weight: data
             }));
-        fetch('http://localhost:3000/' + this.props.logedAc + 'CardioExercise')
+        fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'CardioExercise')
             .then(response => response.json())
             .then(data => this.setState({
                 cardio: data
             }))
-        fetch('http://localhost:3000/' + this.props.logedAc + 'StrengthExercise')
+        fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'StrengthExercise')
             .then(response => response.json())
             .then(data => this.setState({
                 strength: data
             }))
-        fetch('http://localhost:3000/' + this.props.logedAc + 'Meals')
+        fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Meals')
             .then(response => response.json())
             .then(data => this.setState({
                 meals: data

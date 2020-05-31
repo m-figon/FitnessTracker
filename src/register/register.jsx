@@ -80,7 +80,7 @@ class register extends Component {
             (this.validation(this.state.monthValue === "", "monthId")) &&
             (this.validation(this.state.yearValue === "", "yearId"))) {
             console.log('correct registration!');
-            fetch('http://localhost:3000/users', {
+            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/users', {
                 method: 'POST',
                 body: JSON.stringify({
                     name: this.state.accountValue,

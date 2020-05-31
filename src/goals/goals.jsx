@@ -11,7 +11,7 @@ class goals extends Component {
     }
     componentDidMount() {
         console.log('mountin');
-        fetch('http://localhost:3000/users')
+        fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/users')
             .then(response => response.json())
             .then(data => this.setState({
                 users: data

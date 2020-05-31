@@ -32,7 +32,7 @@ class nutrition extends Component {
     }
     changeCalories() {
         if (parseInt(this.state.carbs) + parseInt(this.state.fats) + parseInt(this.state.protein) === 100) {
-            fetch('http://localhost:3000/users/' + this.props.id, {
+            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/users/' + this.props.id, {
                 method: 'PUT',
                 body: JSON.stringify({
 

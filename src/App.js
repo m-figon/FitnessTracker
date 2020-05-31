@@ -11,7 +11,6 @@ import Nutrition from './nutrition/nutrition.jsx';
 import Login from './login/login.jsx';
 import Register from './register/register.jsx';
 import Food from './food/food.jsx';
-import AddFood from './food/addFood.jsx';
 import Exercise from './exercise/exercise.jsx';
 import Account from './account/account.jsx';
 class App extends Component {
@@ -30,7 +29,7 @@ class App extends Component {
   }
   componentDidMount() {
     console.log('app.js mountin')
-    fetch('http://localhost:3000/users')
+    fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/users')
       .then(response => response.json())
       .then(data => this.setState({
         users: data
@@ -100,14 +99,6 @@ class App extends Component {
         </>
       );
     }
-    const AddMeal = () => {
-      return (
-        <>
-          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
-          <AddFood settingsState={this.settingState} logedAc={this.state.logedAc} day={this.state.day} month={this.state.month} year={this.state.year}/>
-        </>
-      );
-    }
     const ExcercisePage = () => {
       return (
         <>
@@ -132,7 +123,6 @@ class App extends Component {
         <Route exact path='/account' component={AccountPage} />
         <Route exact path='/food' component={FoodPage} />
         <Route exact path='/exercise' component={ExcercisePage} />
-        <Route exact path='/food/add' component={AddMeal} />
         <Route exact path='/login' component={LoginPage} />
         <Route exact path='/register' component={RegisterPage} />
         <Route exact path='/goals/nutrition' component={NutritionPage} />

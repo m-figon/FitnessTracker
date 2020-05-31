@@ -22,7 +22,7 @@ class Weight extends Component {
         })
     }
     componentDidMount() {
-        fetch('http://localhost:3000/'+this.props.logedAc+'Weight')
+        fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/'+this.props.logedAc+'Weight')
             .then(response => response.json())
             .then(data => this.setState({
                 weightArray: data
@@ -56,7 +56,7 @@ class Weight extends Component {
             }
         }
         if(dateExists && this.state.weight!==""){
-            fetch('http://localhost:3000/'+this.props.logedAc+'Weight/'+existingId, {
+            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/'+this.props.logedAc+'Weight/'+existingId, {
             method: 'PUT',
             body: JSON.stringify({
                 year: this.state.year,
@@ -69,7 +69,7 @@ class Weight extends Component {
             }
         })
         }else if(!dateExists && oldestDate && this.state.weight!==""){
-            fetch('http://localhost:3000/'+this.props.logedAc+'Weight', {
+            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/'+this.props.logedAc+'Weight', {
             method: 'POST',
             body: JSON.stringify({
                 year: this.state.year,

@@ -3,6 +3,7 @@ import './food.css';
 import FoodChart from './foodChart.jsx';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import AddFood from './addFood';
 class Food extends Component {
     constructor() {
         super();
@@ -15,12 +16,21 @@ class Food extends Component {
     }
     componentDidMount() {
         if (this.props.logedAc) {
-            fetch('http://localhost:3000/' + this.props.logedAc + 'Meals')
+            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Meals')
                 .then(response => response.json())
                 .then(data => this.setState({
                     meals: data
                 }));
         }
+        setInterval(()=>{
+            if (this.props.logedAc) {
+                fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Meals')
+                    .then(response => response.json())
+                    .then(data => this.setState({
+                        meals: data
+                    }));
+            }
+        },1000)
         //05/11/2020
         let currentDate=moment().format('L');
             this.setState({
@@ -60,9 +70,9 @@ class Food extends Component {
     }
     deleteMeal(id) {
         if (this.props.logedAc) {
-            fetch('http://localhost:3000/' + this.props.logedAc + 'Meals/' + id, {
+            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Meals/' + id, {
                 method: 'DELETE'
-            }).then(fetch('http://localhost:3000/' + this.props.logedAc + 'Meals')
+            }).then(fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Meals')
                 .then(response => response.json())
                 .then(data => this.setState({
                     meals: data
@@ -149,9 +159,6 @@ class Food extends Component {
                             <div className="desc">
                                 <div className="one-line">
                                     <h2>Meals</h2>
-                                    <Link
-                                        to={"/food/add"}
-                                    ><button id="button" onClick={()=>this.props.settingState("day",this.state.day,"month",this.state.month,"year",this.state.year)}>Add meal</button></Link>
                                 </div>
                             </div>
                             <div className="blue-desc">
@@ -181,6 +188,7 @@ class Food extends Component {
                         {this.oneLine("Your Daily Goal", this.props.users[this.props.id].calories, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].carbs) / 100 / 4), Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].fats) / 100 / 9), Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].protein) / 100 / 4))}
                         {this.oneLine("Remaining", parseInt(this.props.users[this.props.id].calories) - caloriesNumber, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].carbs) / 100 / 4) - carbsNumber, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].fats) / 100 / 9) - fatsNumber, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].protein) / 100 / 4) - proteinNumber)}
                     </div>
+                    <AddFood  logedAc={this.props.logedAc} day={this.state.day} month={this.state.month} year={this.state.year}/>
                     <div className="food-chart">
                     <FoodChart carbs={Math.round(carbsNumber * 4 * 100 / caloriesNumber)} fats={Math.round(fatsNumber * 9 * 100 / caloriesNumber)} protein={Math.round(proteinNumber * 4 * 100 / caloriesNumber)} />
                     </div>

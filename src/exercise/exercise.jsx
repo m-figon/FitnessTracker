@@ -28,21 +28,21 @@ class Exercise extends Component {
                 year: parseInt(currentDate.substr(6, 4))
             })
         if (this.props.logedAc) {
-            fetch('http://localhost:3000/' + this.props.logedAc + 'CardioExercise')
+            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'CardioExercise')
                 .then(response => response.json())
                 .then(data => this.setState({
                     cardio: data
-                })).then(fetch('http://localhost:3000/' + this.props.logedAc + 'StrengthExercise')
+                })).then(fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'StrengthExercise')
                     .then(response => response.json())
                     .then(data => this.setState({
                         strength: data
                     })))
             setInterval(() => {
-                fetch('http://localhost:3000/' + this.props.logedAc + 'CardioExercise')
+                fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'CardioExercise')
                     .then(response => response.json())
                     .then(data => this.setState({
                         cardio: data
-                    })).then(fetch('http://localhost:3000/' + this.props.logedAc + 'StrengthExercise')
+                    })).then(fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'StrengthExercise')
                         .then(response => response.json())
                         .then(data => this.setState({
                             strength: data
@@ -81,10 +81,10 @@ class Exercise extends Component {
     }
     deleteExercise(id, exercise, array) {
         if (this.props.logedAc) {
-            fetch('http://localhost:3000/' + this.props.logedAc + exercise + "/" + id, {
+            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + exercise + "/" + id, {
                 method: 'DELETE'
             })
-            fetch('http://localhost:3000/' + this.props.logedAc + exercise)
+            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + exercise)
                 .then(response => response.json())
                 .then(data => this.setState({
                     [array]: data
@@ -110,7 +110,7 @@ class Exercise extends Component {
     }
     addExercise(type) {
         if (type === "Cardio" && this.state.name1 && this.state.minutes && this.state.caloriesBurned) {
-            fetch('http://localhost:3000/' + this.props.logedAc + type + "Exercise", {
+            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + type + "Exercise", {
                 method: 'POST',
                 body: JSON.stringify({
                     name: this.state.name1,
@@ -123,7 +123,7 @@ class Exercise extends Component {
                 headers: {
                     "Content-type": "application/json; charset=UTF-8"
                 }
-            }).then(fetch('http://localhost:3000/' + this.props.logedAc + type + "Exercise")
+            }).then(fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + type + "Exercise")
                 .then(response => response.json())
                 .then(data => this.setState({
                     cardio: data,
@@ -132,7 +132,7 @@ class Exercise extends Component {
                     caloriesBurned: ""
                 })))
         } else if (type === "Strength" && this.state.name2 && this.state.reps &&this.state.sets && this.state.weight) {
-            fetch('http://localhost:3000/' + this.props.logedAc + type + "Exercise", {
+            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + type + "Exercise", {
                 method: 'POST',
                 body: JSON.stringify({
                     name: this.state.name2,
@@ -146,7 +146,7 @@ class Exercise extends Component {
                 headers: {
                     "Content-type": "application/json; charset=UTF-8"
                 }
-            }).then(fetch('http://localhost:3000/' + this.props.logedAc + type + "Exercise")
+            }).then(fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + type + "Exercise")
                 .then(response => response.json())
                 .then(data => this.setState({
                     strength: data,
@@ -199,7 +199,7 @@ class Exercise extends Component {
                 }
             })
             return (
-                <div className="food">
+                <div className="excersise">
                     <div className="excersise-content">
                         <div className="date-line">
                             <h2>Your Exercise Diary for:</h2>

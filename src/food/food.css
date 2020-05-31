@@ -1,20 +1,19 @@
-.food {
+.food,.excersise {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin-top: 3vh;
 }
 .food-content {
     width: 50rem;
-    height: 20rem;
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
-.food h1 {
+.food h1
+,.excersise h1 {
     font-size: 0.8rem;
 }
-.food h2 {
+.food h2 , .excersise h2{
     font-size: 1.3rem;
 }
 .desc,
@@ -96,24 +95,35 @@
     width: 8rem;
     height: 2rem;
 }
+.food-content-2 select,
+.food-content-2 input{
+    margin-left: 0.5vw;
+    background-color: rgb(240, 240, 240);
+    color:black;
+    border: 1px solid #d2d2d2;
+    border-radius: 0.3rem;
+}
+.food-content-2 input{
+    width:3rem;
+}
 .gray-desc,
 .longer-gray-desc {
     background-color: rgb(243, 243, 243);
 }
-.meal-one-line {
+.meal-add-line {
     height: 2rem;
-    width: 40rem;
+    width: 20rem;
     background-color: rgb(243, 243, 243);
     display: flex;
     align-items: center;
     margin-bottom: 0.5vh;
 }
-.meal-one-line input[type="text"] {
+.meal-add-line input[type="text"] {
     margin-left: 0.5rem;
     margin-right: 1rem;
     width: 5rem;
 }
-.meal-one-line h1 {
+.meal-add-line h1 {
     margin-left: 1rem;
 }
 .left-side {
