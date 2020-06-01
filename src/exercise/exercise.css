@@ -1,24 +1,22 @@
-.excersise{
+.exercise{
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-top: 3vh;
 }
-.excersise-content {
+.exercise-content {
     width: 50rem;
-    height: 20rem;
     display: flex;
     flex-direction: column;
-    margin-bottom: 5vh;
+    margin-bottom: 2rem;
 }
 @media only screen and (max-width: 850px) {
-    .excersise-content {
+    .exercise-content {
         width: 30rem;
-        height: 15rem;
     }
 }
 @media only screen and (max-width: 520px) {
-    .excersise-content {
+    .exercise-content {
         width: 20rem;
     }
 }
@@ -245,11 +243,12 @@
     .single-ex-line{
         flex-direction: column;
     }
-    .excersise-content {
-        margin-bottom: 8rem;
-    }
     .single-ex-line .right{
         justify-content: flex-start;
 
+    }
+    .calendar-wings {
+        width: 15%;
+        height: 0.7rem;
     }
 }

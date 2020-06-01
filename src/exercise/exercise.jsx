@@ -199,8 +199,8 @@ class Exercise extends Component {
                 }
             })
             return (
-                <div className="excersise">
-                    <div className="excersise-content">
+                <div className="exercise">
+                    <div className="exercise-content">
                         <div className="date-line">
                             <h2>Your Exercise Diary for:</h2>
                             <div className="calendar">
@@ -236,7 +236,7 @@ class Exercise extends Component {
                             <button id="button" onClick={() => this.addExercise("Cardio")}>Add exercise</button>
                         </div>
                     </div>
-                    <div className="food-content">
+                    <div className="exercise-content">
                         <div className="one-line">
                             <div className="desc">
                                 <div className="one-line">

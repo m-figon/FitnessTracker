@@ -70,6 +70,7 @@ class Food extends Component {
     }
     deleteMeal(id) {
         if (this.props.logedAc) {
+            console.log('deleting');
             fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Meals/' + id, {
                 method: 'DELETE'
             }).then(fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Meals')

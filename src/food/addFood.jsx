@@ -55,8 +55,7 @@ class addFood extends Component {
             )
         })
         return (
-            <div className="food">
-                <div className="food-content-2">
+                <div className="food-content">
                     <h2>Add Food</h2>
                     <select value={this.state.id} onChange={(e) => this.inputChange(e, "id")}>
                         <option value="none">Choose meal</option>
@@ -68,7 +67,6 @@ class addFood extends Component {
                     </div>
                     <button id="button" onClick={() => this.addMeal()}>Add Checked</button>
                 </div>
-            </div>
         )
     }
 }
