@@ -13,6 +13,7 @@ import Register from './register/register.jsx';
 import Food from './food/food.jsx';
 import Exercise from './exercise/exercise.jsx';
 import Account from './account/account.jsx';
+import load from './load.gif';
 class App extends Component {
   constructor() {
     super();
@@ -23,7 +24,8 @@ class App extends Component {
       logedId: 0,
       day: null,
       month: null,
-      year: null
+      year: null,
+      loadingId: ""
     }
     this.settingState=this.settingState.bind(this);
   }
@@ -33,7 +35,15 @@ class App extends Component {
       .then(response => response.json())
       .then(data => this.setState({
         users: data
-      }));
+      }))
+      let interval=setInterval(()=>{
+        if(document.readyState==="complete"){
+          this.setState({
+            loadingId: "hidden"
+          })
+          clearInterval(interval);
+        }
+      },500)
   }
   settingState(array1, value1, array2, value2,array3,value3) {
     this.setState({
@@ -116,6 +126,7 @@ class App extends Component {
       );
     }
     return (
+      <>
       <div className="App">
         <Route exact path='/' component={HomePage} />
         <Route exact path='/weight' component={WeightPage} />
@@ -127,6 +138,10 @@ class App extends Component {
         <Route exact path='/register' component={RegisterPage} />
         <Route exact path='/goals/nutrition' component={NutritionPage} />
       </div>
+      <div className="loading" id={this.state.loadingId}>
+      <img src={load}/>
+      </div>
+      </>
     );
   }
 
