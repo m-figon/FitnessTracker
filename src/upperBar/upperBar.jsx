@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import './upperBar.css';
 import { Link } from 'react-router-dom';
+import { loginAction } from '../actions/acAction.js';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 class UpperBar extends Component {
     constructor() {
         super();
@@ -13,7 +16,10 @@ class UpperBar extends Component {
         if(this.props.loged){
             this.setState({
                 signId: "visibleSign",
-                loginOperation: <Link to="/" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><h1 onClick={()=>this.props.settingState("loged",false,"logedAc","","logedId",null)}>Log out</h1></Link>
+                loginOperation: <Link to="/" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><h1 onClick={()=>{
+                    this.props.loginAction("");
+                    this.props.settingState("loged",false,"logedId",null)
+                }}>Log out</h1></Link>
             })
         }else{
             this.setState({
@@ -76,4 +82,12 @@ class UpperBar extends Component {
 
 }
 
-export default UpperBar;
+UpperBar.propTypes = {
+    fetchPosts: PropTypes.func.isRequired,
+    posts: PropTypes.array.isRequired,
+    newPost: PropTypes.object
+  };
+  const mapStateToProps = state => ({
+    logedAc: state.posts.items
+  });
+  export default connect(mapStateToProps, { loginAction })(UpperBar);

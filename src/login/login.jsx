@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import './login.css';
 import { Link } from 'react-router-dom';
-
+import { loginAction } from '../actions/acAction.js';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 class login extends Component {
     constructor(){
         super();
@@ -48,7 +50,8 @@ class login extends Component {
                 this.setState({
                     alertId: "hidden"
                 })
-                this.props.settingState("loged",true,"logedAc",item.name,"logedId",item.id)
+                this.props.settingState("loged",true,"logedId",item.id);
+                this.props.loginAction(item.name);
             }else{
                 this.setState({
                     alertId: "visible"
@@ -80,4 +83,12 @@ class login extends Component {
     
 }
 
-export default login
+login.propTypes = {
+    fetchPosts: PropTypes.func.isRequired,
+    posts: PropTypes.array.isRequired,
+    newPost: PropTypes.object
+  };
+  const mapStateToProps = state => ({
+    logedAc: state.posts.items
+  });
+  export default connect(mapStateToProps, { loginAction })(login);

@@ -14,13 +14,15 @@ import Food from './food/food.jsx';
 import Exercise from './exercise/exercise.jsx';
 import Account from './account/account.jsx';
 import load from './load.gif';
+import { connect } from 'react-redux';
+import { loginAction } from './actions/acAction.js';
+import PropTypes from 'prop-types';
 class App extends Component {
   constructor() {
     super();
     this.state = {
       users: [],
       loged: true,
-      logedAc: "SlickJoe",
       logedId: 0,
       day: null,
       month: null,
@@ -44,6 +46,8 @@ class App extends Component {
           clearInterval(interval);
         }
       },500)
+    console.log(this.props.posts);
+
   }
   settingState(array1, value1, array2, value2,array3,value3) {
     this.setState({
@@ -56,7 +60,7 @@ class App extends Component {
     const HomePage = () => {
       return (
         <>
-          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
+          <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
           <Home />
         </>
       );
@@ -64,7 +68,7 @@ class App extends Component {
     const WeightPage = () => {
       return (
         <>
-          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
+          <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
           <Weight logedAc={this.state.logedAc}/>
         </>
       );
@@ -72,7 +76,7 @@ class App extends Component {
     const GoalsPage = () => {
       return (
         <>
-          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
+          <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
           <Goals id={this.state.logedId} />
         </>
       );
@@ -80,7 +84,7 @@ class App extends Component {
     const NutritionPage = () => {
       return (
         <>
-          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
+          <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
           <Nutrition users={this.state.users} id={this.state.logedId} />
         </>
       );
@@ -88,15 +92,15 @@ class App extends Component {
     const FoodPage = () => {
       return (
         <>
-          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
-          <Food settingState={this.settingState} logedAc={this.state.logedAc} id={this.state.logedId} users={this.state.users}/>
+          <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
+          <Food settingState={this.settingState} logedAc={this.props.logedAc} id={this.state.logedId} users={this.state.users}/>
         </>
       );
     }
     const LoginPage = () => {
       return (
         <>
-          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
+          <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
           <Login  settingState={this.settingState}/>
         </>
       );
@@ -104,7 +108,7 @@ class App extends Component {
     const RegisterPage = () => {
       return (
         <>
-          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
+          <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
           <Register  settingState={this.settingState}/>
         </>
       );
@@ -112,16 +116,16 @@ class App extends Component {
     const ExcercisePage = () => {
       return (
         <>
-          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
-          <Exercise settingState={this.settingState} logedAc={this.state.logedAc} id={this.state.logedId} users={this.state.users} day={this.state.day} month={this.state.month} year={this.state.year}/>
+          <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
+          <Exercise settingState={this.settingState} logedAc={this.props.logedAc} id={this.state.logedId} users={this.state.users} day={this.state.day} month={this.state.month} year={this.state.year}/>
         </>
       );
     }
     const AccountPage = () => {
       return (
         <>
-          <UpperBar settingState={this.settingState} logedAc={this.state.logedAc} loged={this.state.loged} />
-          <Account id={this.state.logedId} users={this.state.users} logedAc={this.state.logedAc}/>
+          <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
+          <Account id={this.state.logedId} users={this.state.users} logedAc={this.props.logedAc}/>
         </>
       );
     }
@@ -147,4 +151,13 @@ class App extends Component {
 
 }
 
-export default App;
+App.propTypes = {
+  fetchPosts: PropTypes.func.isRequired,
+  logedAc: PropTypes.array.isRequired,
+  newPost: PropTypes.object
+};
+
+const mapStateToProps = state => ({
+  logedAc: state.posts.items
+});
+export default connect(mapStateToProps, { loginAction })(App);

@@ -105,15 +105,15 @@ class Weight extends Component {
                         <h1>Please enter date</h1>
                         <select value={this.state.day} onChange={(e) => this.inputChange(e, "day")}>
                             <option value="none">Day</option>
-                            {this.state.days}}
+                            {this.state.days}
                         </select>
                         <select value={this.state.month} onChange={(e) => this.inputChange(e, "month")}>
                             <option value="none">Month</option>
-                            {this.state.months}}
+                            {this.state.months}
                         </select>
                         <select value={this.state.year} onChange={(e) => this.inputChange(e, "year")}>
                             <option value="none">Year</option>
-                            {this.state.years}}
+                            {this.state.years}
                         </select>
                     </div>
                     <div className="weight-line">
