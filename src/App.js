@@ -16,6 +16,7 @@ import Account from './account/account.jsx';
 import load from './load.gif';
 import { connect } from 'react-redux';
 import { loginAction } from './actions/acAction.js';
+import Error from './Error.js';
 import PropTypes from 'prop-types';
 class App extends Component {
   constructor() {
@@ -69,7 +70,9 @@ class App extends Component {
       return (
         <>
           <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
+          <Error>
           <Weight logedAc={this.state.logedAc}/>
+          </Error>
         </>
       );
     }
@@ -77,7 +80,9 @@ class App extends Component {
       return (
         <>
           <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
+          <Error>
           <Goals id={this.state.logedId} />
+          </Error>
         </>
       );
     }
@@ -85,7 +90,9 @@ class App extends Component {
       return (
         <>
           <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
+          <Error>
           <Nutrition users={this.state.users} id={this.state.logedId} />
+          </Error>
         </>
       );
     }
@@ -93,7 +100,10 @@ class App extends Component {
       return (
         <>
           <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
+          <Error>
           <Food settingState={this.settingState} logedAc={this.props.logedAc} id={this.state.logedId} users={this.state.users}/>
+          </Error>
+
         </>
       );
     }
@@ -117,7 +127,9 @@ class App extends Component {
       return (
         <>
           <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
+          <Error>
           <Exercise settingState={this.settingState} logedAc={this.props.logedAc} id={this.state.logedId} users={this.state.users} day={this.state.day} month={this.state.month} year={this.state.year}/>
+          </Error>
         </>
       );
     }
@@ -125,7 +137,9 @@ class App extends Component {
       return (
         <>
           <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
+          <Error>
           <Account id={this.state.logedId} users={this.state.users} logedAc={this.props.logedAc}/>
+          </Error>
         </>
       );
     }
