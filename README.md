@@ -4,13 +4,13 @@ Goal of this project was creating a fitness app website, which allows users to t
 
 ## Used frameworks, languages, libraries
 
--React
+* React
 
--Chart.js
+* Chart.js
 
--JavaScript
+* JavaScript
 
--HTML & CSS
+* HTML & CSS
 
 ## Netlify app link
 
