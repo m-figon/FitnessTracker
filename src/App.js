@@ -71,7 +71,7 @@ class App extends Component {
         <>
           <UpperBar settingState={this.settingState} logedAc={this.props.logedAc} loged={this.state.loged} />
           <Error>
-          <Weight logedAc={this.state.logedAc}/>
+          <Weight logedAc={this.props.logedAc}/>
           </Error>
         </>
       );

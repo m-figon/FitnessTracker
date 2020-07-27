@@ -8,25 +8,23 @@
 @import "./register/register.less";
 @import "./upperBar/upperBar.less";
 @import "./weight/weight.less";
+@import "./main.less";
 
 body{
     font-family: 'Lato', sans-serif;
 }
 .App {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    .flex(flex,center,center,column);
     canvas{
         width:50vw;
         height:50vh;
     }
 }
 #button,#button2{
-    border: 1px solid #d2d2d2;
-    background-color: #ebebeb;
+    border: 1px solid @gray-border;
+    background-color: @button-background;
     &:hover{
-        background-color: #e4e2e2;
+        background-color: @button-hover-background;
     }
 }
 #button2{
@@ -46,9 +44,7 @@ button:focus{
     height: 100vh;
     background: #e4e2e2;
     background: linear-gradient(90deg, #ffffff 0%, #E3F1F4 100%, #ffffff 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .flex();
 }
 .loading img{
     height: 1rem;

@@ -1,8 +1,9 @@
 .account-display,
 .account {
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  flex-direction: column;
 }
 .account-display {
   margin-top: 5rem;
@@ -21,7 +22,7 @@
 .topic {
   width: 100%;
   height: 3rem;
-  background-color: #34619b;
+  background-color: #3b6eb1;
   border-radius: 5px;
 }
 .topic h1 {
@@ -40,9 +41,9 @@
   margin-left: 1rem;
   grid-area: left;
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-direction: column;
 }
 .left-part h1 {
   margin-bottom: 0.2rem;
@@ -66,8 +67,9 @@
 .right-buttons {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
+  flex-direction: row;
   margin-right: 1rem;
 }
 .single-line {
@@ -87,19 +89,20 @@
 .single-column-right {
   width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  flex-direction: column;
 }
 .img-border {
   height: 3rem;
   width: 3rem;
   background-color: white;
-  border: 3px solid #34619b;
+  border: 3px solid #3b6eb1;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   overflow: hidden;
   margin-left: 1rem;
 }
@@ -108,9 +111,9 @@
   margin-bottom: 0;
   grid-area: top;
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-direction: column;
 }
 .up-part button {
   background-color: #ebebeb;
@@ -130,9 +133,9 @@
   margin-left: 1rem;
   grid-area: bottom;
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-direction: column;
 }
 .down-part h1 {
   font-size: 1rem;
@@ -239,6 +242,7 @@
 }
 .exercise {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   margin-top: 3vh;
@@ -264,9 +268,9 @@
   border: 0.03px solid white;
   width: 25rem;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  flex-direction: column;
   height: 2rem;
   border-radius: 5px;
 }
@@ -288,9 +292,9 @@
   height: 2rem;
   border: 0.03px solid white;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   border-radius: 5px;
   margin-left: 1px;
 }
@@ -360,20 +364,23 @@
 }
 .left-side {
   display: flex;
-  align-items: center;
-  width: 100%;
   justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
 }
 .right-side {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
+  flex-direction: row;
   width: 100%;
-  justify-content: flex-end;
 }
 .date-line {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-direction: row;
   margin-bottom: 1vh;
   border-bottom: 2px solid #dad9d9;
 }
@@ -386,6 +393,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   height: 1.5rem;
 }
 .date-line h2 {
@@ -396,6 +404,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   background-color: #3b6eb1;
   color: white;
   height: 2rem;
@@ -422,9 +431,9 @@
 }
 .adding-exercise-line {
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-direction: column;
   margin-top: 2vh;
 }
 .adding-exercise-line input {
@@ -490,6 +499,7 @@
 .exercise {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   flex-direction: column;
 }
 .food-content {
@@ -511,9 +521,9 @@
   border: 0.03px solid white;
   width: 25rem;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  flex-direction: column;
   height: 2rem;
   border-radius: 5px;
 }
@@ -528,9 +538,9 @@
   height: 2rem;
   border: 0.03px solid white;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   border-radius: 5px;
   margin-left: 1px;
 }
@@ -617,21 +627,24 @@
 }
 .left-side {
   display: flex;
-  align-items: center;
   justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
 }
 .right-side {
   display: flex;
-  align-items: center;
-  width: 100%;
   justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
 }
 .date-line {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-direction: row;
   margin-bottom: 1vh;
-  border-bottom: 2px solid #dad9d9;
+  border-bottom: 2px solid #d2d2d2;
 }
 .date-line select {
   margin-left: 0.5vw;
@@ -642,6 +655,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   height: 1.5rem;
 }
 .date-line h2 {
@@ -652,6 +666,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
   background-color: #3b6eb1;
   color: white;
   height: 2rem;
@@ -762,10 +777,10 @@
   background-color: #3b6eb1;
   color: white;
   border-radius: 5px;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #fff;
 }
 .line {
-  background-color: #f0f0f0;
+  background-color: #f3f3f3;
   color: black;
   border-radius: 5px;
 }
@@ -820,6 +835,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
 .ad-div1,
 .ad-div2,
@@ -837,21 +853,21 @@
 .ad-div1 h1,
 .ad-div2 h1,
 .ad-div3 h1 {
-  color: #34619b;
+  color: #3b6eb1;
   font-size: 1rem;
 }
 .ad-div1 h2,
 .ad-div2 h2,
 .ad-div3 h2 {
   margin-bottom: -1rem;
-  color: #34619b;
+  color: #3b6eb1;
   font-size: 2rem;
 }
 .ad-div1 h3,
 .ad-div2 h3,
 .ad-div3 h3 {
   margin-bottom: 2rem;
-  color: #34619b;
+  color: #3b6eb1;
   font-size: 3rem;
 }
 .ad-div1,
@@ -871,27 +887,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
 .benefit {
   width: 100%;
   height: 2rem;
-  background-color: #d8d8d8;
+  background-color: #f3f3f3;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
 .ad-end {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  flex-direction: column;
   border-radius: 1rem;
   overflow: hidden;
 }
 .ad-end button {
-  background: #34619b;
+  background: #3b6eb1;
   height: 2rem;
   font-size: 1.3;
   width: 100%;
@@ -928,17 +946,18 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  flex-direction: row;
 }
 .login-form {
-  border: 1px solid #f0f0f0;
+  border: 1px solid #d2d2d2;
   border-radius: 10px;
   width: 20rem;
   height: 25rem;
   margin-top: 10vh;
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 }
 .login-content {
   width: 15rem;
@@ -1011,9 +1030,9 @@
 }
 .settings-line,
 .topic-line {
-  background-color: #f0f0f0;
+  background-color: #f3f3f3;
   color: black;
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #fff;
   display: flex;
   border-radius: 5px;
 }
@@ -1033,6 +1052,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-direction: row;
   margin-left: 0.5vw;
 }
 .settings-left .line-column h1 {
@@ -1050,6 +1070,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  flex-direction: row;
   margin-right: 0.5vw;
 }
 .settings-right .settings-right input,
@@ -1097,6 +1118,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  flex-direction: row;
 }
 .register-form {
   border: 1px solid #d2d2d2;
@@ -1106,8 +1128,8 @@
   margin-top: 10vh;
   display: flex;
   justify-content: center;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 }
 .register-content {
   width: 30rem;
@@ -1194,6 +1216,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
 .n-bar,
 .slogan {
@@ -1235,6 +1258,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
 .u-left h1 {
   font-size: 1.5rem;
@@ -1251,6 +1275,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
 .u-right h1 {
   font-size: 1rem;
@@ -1303,6 +1328,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-direction: row;
 }
 .weight-line {
   margin-top: 2vh;
@@ -1399,6 +1425,7 @@ button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
 .loading img {
   height: 1rem;

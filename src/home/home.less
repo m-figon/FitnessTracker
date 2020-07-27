@@ -1,11 +1,11 @@
+@import '../main.less';
+
 .home-display{
     width:100%;
     height:90vh;
     background: url('food.jpg');
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .flex(flex,center,center,row);
 }
 .ad-div1,
 .ad-div2,
@@ -14,23 +14,20 @@
     border-radius: 1rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    border: 1px solid #d2d2d2;
+    .flex(flex,flex-start,center,column);
+    border: 1px solid @gray-border;
     h1{
-        color: rgb(52, 97, 155);
+        color: @dark-blue;
         font-size: 1.0rem;  
     }
     h2{
         margin-bottom: -1rem;
-        color: rgb(52, 97, 155);
+        color: @dark-blue;
         font-size: 2rem;
     }
     h3{
         margin-bottom: 2rem;
-        color: rgb(52, 97, 155);
+        color: @dark-blue;
         font-size:3rem;
     }
 }
@@ -51,34 +48,27 @@
     }
 }
 .ad-line{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .flex();
 }
 .benefit{
     width:100%;
     height: 2rem;
-    background-color: rgb(216, 216, 216);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: @gray-background;
+    .flex();
 }
 .ad-end{
     width:100%;
     height:100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
+    .flex(flex,flex-end,center,column);
     border-radius: 1rem;
     overflow: hidden;
     button{
-        background: rgba(52, 97, 155,1);
+        background: @dark-blue;
         height: 2rem;
         font-size: 1.3;
         width:100%;
-        color:rgb(255, 255, 255);
-        border: 1px solid #d2d2d2;
+        color:#ffffff;
+        border: 1px solid @gray-border;
         &:hover{
             cursor: pointer;
             background: rgb(63, 116, 185);

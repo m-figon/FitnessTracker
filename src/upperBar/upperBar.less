@@ -1,20 +1,17 @@
+@import '../main.less';
+
 .navigation-bar{
     width:100%;
     height: 5vh;
-    background-color: #4c91eb;
+    background-color: @light-blue;
     color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .flex();
 }
 .n-bar,
 .slogan{
     width:50%;
     height:100%;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: row;
+    .flex(flex,flex-start,center,row);
 }
 .n-bar h1,
 .slogan h1{
@@ -26,14 +23,14 @@
     align-items: center;
 }
 .n-bar h1:hover{
-    background-color: rgb(59, 110, 177);
+    background-color: @dark-blue;
 }
 .upper-bar{
     width:100%;
     display: flex;
     justify-content: center;
     height: 10vh;
-    color: rgb(76, 145, 235);
+    color: @light-blue;
 }
 .u-bar{
     width:60%;
@@ -44,9 +41,7 @@
 .u-left{
     width:40%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .flex();
     h1{
         font-size: 1.5rem;
         font-family: 'Permanent Marker', cursive;
@@ -60,9 +55,7 @@
 .u-right{
     width: 60%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .flex();
     h1{
         font-size: 1rem;
         margin-left: 0.5vw;
@@ -72,7 +65,7 @@
     }
 }
 #welcome:hover{
-    color: rgb(76, 145, 235);
+    color: @light-blue;
 }
 #visibleSign{
     display: flex;

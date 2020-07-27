@@ -1,20 +1,17 @@
+@import '../main.less';
+
 .login {
     width: 100%;
     height: 85vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    .flex(flex,center,flex-start,row);
 }
 .login-form {
-    border: 1px solid rgb(240, 240, 240);
+    border: 1px solid @gray-border;
     border-radius: 10px;
     width: 20rem;
     height: 25rem;
     margin-top: 10vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    .flex(flex,center,center,column);
 }
 .login-content {
     width: 15rem;
@@ -29,18 +26,18 @@
     }
     input {
         height: 1.5rem;
-        background-color: rgb(240, 240, 240);
-        border: 1px solid #d2d2d2;
+        background-color: @input-background;
+        border: 1px solid @gray-border;
         padding-left: 0.2vw;
     }
     button {
         margin-top: 3vh;
         margin-bottom: 1vh;
-        background-color: #ebebeb;
+        background-color: @button-background;
         height: 1.5rem;
         width: 5rem;
         color: black;
-        border: 1px solid #d2d2d2;
+        border: 1px solid @gray-border;
         border-radius: 0.3rem;
         &:hover {
             cursor: pointer;
