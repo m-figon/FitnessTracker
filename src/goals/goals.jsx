@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './goals.css';
+import '../App.css';
 import { Link } from 'react-router-dom';
 import MacrosChart from '../macrosChart/macrosChart.jsx';
 class goals extends Component {

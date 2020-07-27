@@ -5,17 +5,17 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-}
-.goals-content button {
-    background-color: #ebebeb;
-    color: black;
-    border: 1px solid #d2d2d2;
-    border-radius: 0.3rem;
-    height: 2rem;
-}
-.goals-content button:hover {
-    cursor: pointer;
-    background-color: #e4e2e2;
+    button {
+        background-color: #ebebeb;
+        color: black;
+        border: 1px solid #d2d2d2;
+        border-radius: 0.3rem;
+        height: 2rem;
+        &:hover {
+            cursor: pointer;
+            background-color: #e4e2e2;
+        }
+    }
 }
 .nutrition-settings {
     margin-top: 2rem;
@@ -35,12 +35,12 @@
     background-color: rgb(59, 110, 177);
     color: white;
     border: 0px solid black;
-}
-.topic-line .settings-left h1 {
-    font-size: 1.2rem;
-}
-.topic-line .settings-right button {
-    height: 1.5rem;
+    .settings-left h1 {
+        font-size: 1.2rem;
+    }
+    .settings-right button {
+        height: 1.5rem;
+    }
 }
 .settings-left {
     width: 100%;
@@ -48,6 +48,16 @@
     justify-content: flex-start;
     align-items: center;
     margin-left: 0.5vw;
+    .line-column h1 {
+        font-size: 0.9rem;
+    }
+    .line-column h2 {
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 1rem;
+        margin-left: 1vw;
+    }
 }
 .settings-right {
     width: 100%;
@@ -55,26 +65,21 @@
     justify-content: flex-end;
     align-items: center;
     margin-right: 0.5vw;
-}
-.settings-right input,
-.settings-right select {
-    height: 1.5rem;
-}
-.settings-right input,
-.settings-right select {
-    width: 3.5rem;
-    text-align: center;
-    margin-left: 0.5vw;
-    background-color: white;
-    color: black;
-    border: 1px solid #d2d2d2;
-    border-radius: 0.3rem;
-}
-.settings-left .line-column h1 {
-    font-size: 0.9rem;
-}
-.settings-left .line-column h2 {
-    font-size: 1rem;
+    .settings-right input,
+    .settings-right select {
+        height: 1.5rem;
+        width: 3.5rem;
+        text-align: center;
+        margin-left: 0.5vw;
+        background-color: white;
+        color: black;
+        border: 1px solid #d2d2d2;
+        border-radius: 0.3rem;
+    }
+    h1 {
+        font-size: 1rem;
+        margin-right: 1vw;
+    }
 }
 #green-id {
     font-size: 1.5rem;
@@ -83,14 +88,6 @@
 #red-id {
     font-size: 1.5rem;
     color: rgb(224, 15, 15);
-}
-.settings-left h1 {
-    font-size: 1rem;
-    margin-left: 1vw;
-}
-.settings-right h1 {
-    font-size: 1rem;
-    margin-right: 1vw;
 }
 @media only screen and (max-width: 600px) {
     .nutrition-settings {

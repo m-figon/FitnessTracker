@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './account.css';
+import '../App.css';
 import { Link } from 'react-router-dom';
 import moment from 'moment'
 import bar0 from "./0.png";

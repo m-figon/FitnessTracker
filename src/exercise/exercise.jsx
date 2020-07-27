@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './exercise.css';
+import '../App.css';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 class Exercise extends Component {

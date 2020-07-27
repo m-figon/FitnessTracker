@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './food.css';
+import '../App.css';
 import FoodChart from './foodChart.jsx';
 import { Link } from 'react-router-dom';
 import moment from 'moment';

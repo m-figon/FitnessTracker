@@ -19,8 +19,21 @@
     align-items: center;
     flex-direction: column;
     border: 1px solid #d2d2d2;
+    h1{
+        color: rgb(52, 97, 155);
+        font-size: 1.0rem;  
+    }
+    h2{
+        margin-bottom: -1rem;
+        color: rgb(52, 97, 155);
+        font-size: 2rem;
+    }
+    h3{
+        margin-bottom: 2rem;
+        color: rgb(52, 97, 155);
+        font-size:3rem;
+    }
 }
-
 .ad-div1,
 .ad-div3{
     width:15rem;
@@ -30,30 +43,12 @@
     width:17rem;
     height:31rem;
 }
-
-.ad-div1 h1,
-.ad-div2 h1,
-.ad-div3 h1{
-    color: rgb(52, 97, 155);
-    font-size: 1.0rem;  
-}
-.ad-div1 h2,
-.ad-div2 h2,
-.ad-div3 h2{
-    margin-bottom: -1rem;
-    color: rgb(52, 97, 155);
-    font-size: 2rem;
-}
-.ad-div1 h3,
-.ad-div2 h3,
-.ad-div3 h3{
-    margin-bottom: 2rem;
-    color: rgb(52, 97, 155);
-    font-size:3rem;
-}
-.ad-div2 .ad-line h3,
-.ad-div2 .ad-line h1{
-    color:rgb(211, 64, 35);
+.ad-div2{
+    .ad-line{
+        h3,h1{
+            color:rgb(211, 64, 35);
+        }
+    }
 }
 .ad-line{
     display: flex;
@@ -77,18 +72,18 @@
     align-items: center;
     border-radius: 1rem;
     overflow: hidden;
-}
-.ad-end button{
-    background: rgba(52, 97, 155,1);
-    height: 2rem;
-    font-size: 1.3;
-    width:100%;
-    color:rgb(255, 255, 255);
-    border: 1px solid #d2d2d2;
-}
-.ad-end button:hover{
-    cursor: pointer;
-    background: rgb(63, 116, 185);
+    button{
+        background: rgba(52, 97, 155,1);
+        height: 2rem;
+        font-size: 1.3;
+        width:100%;
+        color:rgb(255, 255, 255);
+        border: 1px solid #d2d2d2;
+        &:hover{
+            cursor: pointer;
+            background: rgb(63, 116, 185);
+        }
+    }
 }
 @media only screen and (max-width: 600px) {
     .ad-div1{
@@ -108,6 +103,5 @@
     .ad-div2{
         width:11rem;
         height: 25rem;
-
     }
 }

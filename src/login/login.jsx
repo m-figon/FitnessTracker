@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './login.css';
+import '../App.css';
 import { Link } from 'react-router-dom';
 import { loginAction } from '../actions/acAction.js';
 import { connect } from 'react-redux';

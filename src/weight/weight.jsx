@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import WeightChart from './weightChart.jsx';
-import './weight.css';
+import '../App.css';
 class Weight extends Component {
     constructor() {
         super();

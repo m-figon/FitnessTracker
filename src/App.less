@@ -1,0 +1,56 @@
+@import "./account/account.less";
+@import "./exercise/exercise.less";
+@import "./food/food.less";
+@import "./goals/goals.less";
+@import "./home/home.less";
+@import "./login/login.less";
+@import "./nutrition/nutrition.less";
+@import "./register/register.less";
+@import "./upperBar/upperBar.less";
+@import "./weight/weight.less";
+
+body{
+    font-family: 'Lato', sans-serif;
+}
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    canvas{
+        width:50vw;
+        height:50vh;
+    }
+}
+#button,#button2{
+    border: 1px solid #d2d2d2;
+    background-color: #ebebeb;
+    &:hover{
+        background-color: #e4e2e2;
+    }
+}
+#button2{
+    height:1.3rem;
+}
+input:focus,
+select:focus,
+button:focus{
+    outline: none;
+}
+.loading{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    background: #e4e2e2;
+    background: linear-gradient(90deg, #ffffff 0%, #E3F1F4 100%, #ffffff 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading img{
+    height: 1rem;
+    width: 1rem;
+}

@@ -29,9 +29,7 @@
     height: 2rem;
     border-radius: 5px;
 }
-.desc h2 {
-    color: rgb(59, 110, 177);
-}
+.desc h2,
 .desc h1 {
     color: rgb(59, 110, 177);
 }
@@ -51,9 +49,9 @@
 .blue-desc {
     background-color: rgb(59, 110, 177);
     border: 1px solid white;
-}
-.blue-desc h1 {
+    h1 {
     color: white;
+    }   
 }
 .blue-desc h1,
 .gray-desc h1,
@@ -88,26 +86,28 @@
     cursor: pointer;
     background-color: #e4e2e2;
 }
-.food-content button {
-    margin-top: 2vh;
-    background-color: #ebebeb;
-    color: black;
-    border: 1px solid #d2d2d2;
-    border-radius: 0.3rem;
-    width: 8rem;
-    height: 2rem;
-}
-.food-content select,
-.food-content input {
-    margin-left: 0.5vw;
-    background-color: rgb(240, 240, 240);
-    color: black;
-    border: 1px solid #d2d2d2;
-    border-radius: 0.3rem;
-    width: 15rem;
-}
-.food-content input {
-    width: 3rem;
+.food-content{
+    button {
+        margin-top: 2vh;
+        background-color: #ebebeb;
+        color: black;
+        border: 1px solid #d2d2d2;
+        border-radius: 0.3rem;
+        width: 8rem;
+        height: 2rem;
+    }
+    select,
+    input {
+        margin-left: 0.5vw;
+        background-color: rgb(240, 240, 240);
+        color: black;
+        border: 1px solid #d2d2d2;
+        border-radius: 0.3rem;
+        width: 15rem;
+    }
+    input {
+        width: 3rem;
+    }
 }
 .gray-desc,
 .longer-gray-desc {
@@ -120,14 +120,14 @@
     display: flex;
     align-items: center;
     margin-bottom: 0.5vh;
-}
-.meal-add-line input[type="text"] {
-    margin-left: 0.5rem;
-    margin-right: 1rem;
-    width: 5rem;
-}
-.meal-add-line h1 {
-    margin-left: 1rem;
+    input[type="text"] {
+        margin-left: 0.5rem;
+        margin-right: 1rem;
+        width: 5rem;
+    }
+    h1 {
+        margin-left: 1rem;
+    }
 }
 .left-side {
     display: flex;
@@ -146,6 +146,20 @@
     align-items: center;
     margin-bottom: 1vh;
     border-bottom: 2px solid rgb(218, 217, 217);
+    select {
+        margin-left: 0.5vw;
+        background-color: rgb(240, 240, 240);
+        color: black;
+        border: 1px solid #d2d2d2;
+        border-radius: 0.3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1.5rem;
+    }
+    h2 {
+        color: rgb(59, 110, 177);
+    }
 }
 .calendar {
     margin-left: 0.5rem;
@@ -162,9 +176,9 @@
     background-color: white;
     width: 50%;
     height: 1rem;
-}
-.calendar-wings:hover {
-    cursor: pointer;
+    &:hover {
+        cursor: pointer;
+    }
 }
 .gray-desc button {
     clip-path: polygon(
@@ -182,6 +196,9 @@
         50% 30%
     );
     background-color: rgb(59, 110, 177);
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0;
 }
 #left-arrow {
     margin-left: 0.3rem;
@@ -193,34 +210,17 @@
     margin-left: 0.3rem;
     clip-path: polygon(0% 0%, 0 0, 100% 50%, 0 100%, 0% 100%);
 }
-.date-line select {
-    margin-left: 0.5vw;
-    background-color: rgb(240, 240, 240);
-    color: black;
-    border: 1px solid #d2d2d2;
-    border-radius: 0.3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 1.5rem;
-}
-.date-line h2 {
-    color: rgb(59, 110, 177);
-}
-.gray-desc button {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-top: 0;
-}
 @media only screen and (max-width: 850px) {
     .food-content {
         width: 30rem;
     }
-    .food h2 {
-        font-size: 1rem;
-    }
-    .food h1 {
-        font-size: 0.7rem;
+    .food{
+        h2 {
+            font-size: 1rem;
+        }
+        h1 {
+            font-size: 0.7rem;
+        }
     }
     .desc button {
         margin-left: 0.5rem;
@@ -243,11 +243,13 @@
     .food-content {
         width: 20rem;
     }
-    .food h2 {
-        font-size: 0.9rem;
-    }
-    .food h1 {
-        font-size: 0.6rem;
+    .food{
+        h2 {
+            font-size: 0.9rem;
+        }
+        h1 {
+            font-size: 0.6rem;
+        }
     }
     .desc button {
         font-size: 0.6rem;

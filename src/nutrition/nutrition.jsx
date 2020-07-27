@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './nutrition.css';
+import '../App.css';
 import { Link } from 'react-router-dom';
 class nutrition extends Component {
     constructor() {
