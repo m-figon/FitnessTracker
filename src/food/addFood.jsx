@@ -42,6 +42,8 @@ class addFood extends Component {
                 headers: {
                     "Content-type": "application/json; charset=UTF-8"
                 }
+            }).then(()=>{
+                this.props.refreshMeals();
             })
 
 

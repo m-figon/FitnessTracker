@@ -4,6 +4,8 @@ import FoodChart from './foodChart.jsx';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import AddFood from './addFood';
+import load from '../load.gif';
+
 class Food extends Component {
     constructor() {
         super();
@@ -12,32 +14,34 @@ class Food extends Component {
             day: 2,
             month: 5,
             year: 2020,
+            loading: true,
         }
+        this.refreshMeals = this.refreshMeals.bind(this);
     }
-    componentDidMount() {
-        if (this.props.logedAc) {
+    refreshMeals() {
+        this.setState({
+            loading: true
+        }, () => {
             fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Meals')
                 .then(response => response.json())
                 .then(data => this.setState({
-                    meals: data
+                    meals: data,
+                    loading: false
                 }));
+        })
+
+    }
+    componentDidMount() {
+        if (this.props.logedAc) {
+            this.refreshMeals();
         }
-        setInterval(()=>{
-            if (this.props.logedAc) {
-                fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Meals')
-                    .then(response => response.json())
-                    .then(data => this.setState({
-                        meals: data
-                    }));
-            }
-        },1000)
         //05/11/2020
-        let currentDate=moment().format('L');
-            this.setState({
-                month: parseInt(currentDate.substr(0, 2)),
-                day: parseInt(currentDate.substr(3, 2)),
-                year: parseInt(currentDate.substr(6, 4))
-            })
+        let currentDate = moment().format('L');
+        this.setState({
+            month: parseInt(currentDate.substr(0, 2)),
+            day: parseInt(currentDate.substr(3, 2)),
+            year: parseInt(currentDate.substr(6, 4))
+        })
     }
     changeDate(operation) {
         if (operation === "+") {
@@ -73,11 +77,9 @@ class Food extends Component {
             console.log('deleting');
             fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Meals/' + id, {
                 method: 'DELETE'
-            }).then(fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Meals')
-                .then(response => response.json())
-                .then(data => this.setState({
-                    meals: data
-                })))
+            }).then(() => {
+                this.refreshMeals();
+            })
         }
 
     }
@@ -105,7 +107,12 @@ class Food extends Component {
         </div>);
     }
     render() {
-        if (this.props.logedAc && this.props.users) {
+        if (this.state.loading) {
+            return (<div className="loading">
+                <img src={load} />
+            </div>)
+        }
+        else if (this.props.logedAc && this.props.users) {
             let caloriesNumber = 0;
             let carbsNumber = 0;
             let fatsNumber = 0;
@@ -189,9 +196,9 @@ class Food extends Component {
                         {this.oneLine("Your Daily Goal", this.props.users[this.props.id].calories, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].carbs) / 100 / 4), Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].fats) / 100 / 9), Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].protein) / 100 / 4))}
                         {this.oneLine("Remaining", parseInt(this.props.users[this.props.id].calories) - caloriesNumber, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].carbs) / 100 / 4) - carbsNumber, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].fats) / 100 / 9) - fatsNumber, Math.round(parseInt(this.props.users[this.props.id].calories) * parseInt(this.props.users[this.props.id].protein) / 100 / 4) - proteinNumber)}
                     </div>
-                    <AddFood  logedAc={this.props.logedAc} day={this.state.day} month={this.state.month} year={this.state.year}/>
+                    <AddFood refreshMeals={this.refreshMeals} logedAc={this.props.logedAc} day={this.state.day} month={this.state.month} year={this.state.year} />
                     <div className="food-chart">
-                    <FoodChart carbs={Math.round(carbsNumber * 4 * 100 / caloriesNumber)} fats={Math.round(fatsNumber * 9 * 100 / caloriesNumber)} protein={Math.round(proteinNumber * 4 * 100 / caloriesNumber)} />
+                        <FoodChart carbs={Math.round(carbsNumber * 4 * 100 / caloriesNumber)} fats={Math.round(fatsNumber * 9 * 100 / caloriesNumber)} protein={Math.round(proteinNumber * 4 * 100 / caloriesNumber)} />
                     </div>
                 </div>
             )

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import '../App.css';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import load from '../load.gif';
+
 class Exercise extends Component {
     constructor() {
         super();
@@ -17,37 +19,20 @@ class Exercise extends Component {
             name2: "",
             sets: "",
             reps: "",
-            weight: ""
+            weight: "",
+            loading: true
         }
     }
     componentDidMount() {
-        let currentDate=moment().format('L');
-            this.setState({
-                month: parseInt(currentDate.substr(0, 2)),
-                day: parseInt(currentDate.substr(3, 2)),
-                year: parseInt(currentDate.substr(6, 4))
-            })
+        let currentDate = moment().format('L');
+        this.setState({
+            month: parseInt(currentDate.substr(0, 2)),
+            day: parseInt(currentDate.substr(3, 2)),
+            year: parseInt(currentDate.substr(6, 4))
+        })
         if (this.props.logedAc) {
-            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'CardioExercise')
-                .then(response => response.json())
-                .then(data => this.setState({
-                    cardio: data
-                })).then(fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'StrengthExercise')
-                    .then(response => response.json())
-                    .then(data => this.setState({
-                        strength: data
-                    })))
-            setInterval(() => {
-                fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'CardioExercise')
-                    .then(response => response.json())
-                    .then(data => this.setState({
-                        cardio: data
-                    })).then(fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'StrengthExercise')
-                        .then(response => response.json())
-                        .then(data => this.setState({
-                            strength: data
-                        })))
-            }, 2000)
+            this.refreshExcersise('cardio');
+            this.refreshExcersise('strength');
         }
     }
     changeDate(operation) {
@@ -83,13 +68,34 @@ class Exercise extends Component {
         if (this.props.logedAc) {
             fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + exercise + "/" + id, {
                 method: 'DELETE'
+            }).then(() => {
+                fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + exercise)
+                    .then(response => response.json())
+                    .then(data => this.setState({
+                        [array]: data
+                    }))
             })
-            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + exercise)
+
+        }
+    }
+    refreshExcersise(type) {
+        if (type === 'cardio') {
+            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'CardioExercise')
                 .then(response => response.json())
                 .then(data => this.setState({
-                    [array]: data
+                    cardio: data,
+                    loading: false
                 }))
         }
+        else if (type === 'strength') {
+            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'StrengthExercise')
+                .then(response => response.json())
+                .then(data => this.setState({
+                    strength: data,
+                    loading: false
+                }))
+        }
+
     }
     inputChange(e, array) {
         this.setState({
@@ -130,8 +136,10 @@ class Exercise extends Component {
                     name1: "",
                     minutes: "",
                     caloriesBurned: ""
+                }, () => {
+                    this.refreshExcersise('cardio');
                 })))
-        } else if (type === "Strength" && this.state.name2 && this.state.reps &&this.state.sets && this.state.weight) {
+        } else if (type === "Strength" && this.state.name2 && this.state.reps && this.state.sets && this.state.weight) {
             fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + type + "Exercise", {
                 method: 'POST',
                 body: JSON.stringify({
@@ -154,11 +162,18 @@ class Exercise extends Component {
                     sets: "",
                     reps: "",
                     weight: ""
+                }, () => {
+                    this.refreshExcersise('strength');
                 })))
         }
     }
     render() {
-        if (this.props.logedAc && this.props.users) {
+        if (this.state.loading) {
+            return (<div className="loading">
+                <img src={load} />
+            </div>)
+        }
+        else if (this.props.logedAc && this.props.users) {
             let cardioArray = this.state.cardio.map((item) => {
                 if (parseInt(item.day) === this.state.day && parseInt(item.month) === this.state.month && parseInt(item.year) === this.state.year) {
                     return (<div className="one-line">
@@ -266,8 +281,6 @@ class Exercise extends Component {
                     </div>
                 </div>
             )
-        } else {
-            return (null);
         }
 
     }

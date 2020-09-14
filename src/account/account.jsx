@@ -13,6 +13,7 @@ import bar7 from "./70.png";
 import bar8 from "./80.png";
 import bar9 from "./90.png";
 import bar10 from "./100.png";
+import load from '../load.gif';
 
 import biceps from './biceps.png';
 class account extends Component {
@@ -31,6 +32,7 @@ class account extends Component {
             tmpDay: 0,
             tmpName: "",
             img: null,
+            loading: true
         }
     }
     componentDidMount() {
@@ -44,21 +46,25 @@ class account extends Component {
             .then(response => response.json())
             .then(data => this.setState({
                 weight: data
-            }));
-        fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'CardioExercise')
-            .then(response => response.json())
-            .then(data => this.setState({
-                cardio: data
-            }))
-        fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'StrengthExercise')
-            .then(response => response.json())
-            .then(data => this.setState({
-                strength: data
-            }))
-        fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Meals')
-            .then(response => response.json())
-            .then(data => this.setState({
-                meals: data
+            }, () => {
+                fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'CardioExercise')
+                    .then(response => response.json())
+                    .then(data => this.setState({
+                        cardio: data
+                    }, () => {
+                        fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'StrengthExercise')
+                            .then(response => response.json())
+                            .then(data => this.setState({
+                                strength: data
+                            }, () => {
+                                fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Meals')
+                                    .then(response => response.json())
+                                    .then(data => this.setState({
+                                        meals: data,
+                                        loading: false
+                                    }));
+                            }))
+                    }))
             }));
     }
     sorter(element) {
@@ -115,25 +121,31 @@ class account extends Component {
                 imgSrc = bar3;
             } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.3 && caloriesNumber / this.props.users[this.props.id].calories < 0.4) {
                 imgSrc = bar4;
-            }else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.4 && caloriesNumber / this.props.users[this.props.id].calories < 0.5) {
+            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.4 && caloriesNumber / this.props.users[this.props.id].calories < 0.5) {
                 imgSrc = bar5;
-            }else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.5 && caloriesNumber / this.props.users[this.props.id].calories < 0.6) {
+            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.5 && caloriesNumber / this.props.users[this.props.id].calories < 0.6) {
                 imgSrc = bar6;
-            }else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.6 && caloriesNumber / this.props.users[this.props.id].calories < 0.7) {
+            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.6 && caloriesNumber / this.props.users[this.props.id].calories < 0.7) {
                 imgSrc = bar7;
-            }else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.7 && caloriesNumber / this.props.users[this.props.id].calories < 0.8) {
+            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.7 && caloriesNumber / this.props.users[this.props.id].calories < 0.8) {
                 imgSrc = bar8;
-            }else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.8 && caloriesNumber / this.props.users[this.props.id].calories < 0.9) {
+            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.8 && caloriesNumber / this.props.users[this.props.id].calories < 0.9) {
                 imgSrc = bar9;
-            }else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.94) {
+            } else if (caloriesNumber / this.props.users[this.props.id].calories >= 0.94) {
                 imgSrc = bar10;
             }
             //console.log(this.state.tmpDay + "/" + this.state.tmpMonth + "/" + this.state.tmpYear + " " + this.state.tmpName);
-            if(parseInt(this.props.users[this.props.id].calories) - parseInt(caloriesNumber)>=0){
-                remainingId="green"
-            }else{
-                remainingId="red-sign";
+            if (parseInt(this.props.users[this.props.id].calories) - parseInt(caloriesNumber) >= 0) {
+                remainingId = "green"
+            } else {
+                remainingId = "red-sign";
             }
+        }
+        if (this.state.loading) {
+            return (<div className="loading">
+                <img src={load} />
+            </div>)
+        } else {
             return (
                 <div className="account-display" >
                     <div className="account">
@@ -168,37 +180,34 @@ class account extends Component {
                             <div className="down-part">
                                 <img src={imgSrc} alt=""></img>
                                 <div className="single-line">
-                                <div className="single-column">
-                                    <h2>{this.props.users[this.props.id].calories}</h2>
-                                    <h1>Goal</h1>
-                                </div>
-                                <div className="single-column">
-                                    <h2>-</h2>
-                                </div>
-                                <div className="single-column">
-                                    <h2>{caloriesNumber}</h2>
-                                    <h1>Food</h1>
-                                </div>
-                                <div className="single-column">
-                                    <h2>=</h2>
-                                </div>
-                                <div className="single-column">
-                                    <h2>{parseInt(this.props.users[this.props.id].calories) - parseInt(caloriesNumber)}</h2>
-                                    <h1>Remaining</h1>
-                                </div>
-                                <div className="single-column-right">
-                                <Link to="/weight" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><img id="scale" alt="" src="https://www.transparentpng.com/thumb/weight-scale/weighing-scale-other-icons-png-22.png"></img></Link>
-                                </div>
+                                    <div className="single-column">
+                                        <h2>{this.props.users[this.props.id].calories}</h2>
+                                        <h1>Goal</h1>
+                                    </div>
+                                    <div className="single-column">
+                                        <h2>-</h2>
+                                    </div>
+                                    <div className="single-column">
+                                        <h2>{caloriesNumber}</h2>
+                                        <h1>Food</h1>
+                                    </div>
+                                    <div className="single-column">
+                                        <h2>=</h2>
+                                    </div>
+                                    <div className="single-column">
+                                        <h2>{parseInt(this.props.users[this.props.id].calories) - parseInt(caloriesNumber)}</h2>
+                                        <h1>Remaining</h1>
+                                    </div>
+                                    <div className="single-column-right">
+                                        <Link to="/weight" style={{ textDecoration: 'none', color: "rgb(76, 145, 235)" }}><img id="scale" alt="" src="https://www.transparentpng.com/thumb/weight-scale/weighing-scale-other-icons-png-22.png"></img></Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             )
-        } else {
-            return (null);
         }
-
     }
 
 }
