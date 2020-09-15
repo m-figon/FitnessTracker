@@ -31,6 +31,13 @@ class Weight extends Component {
                 weightArray: data,
                 loading: false
             }));
+            setInterval(()=>{
+                fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/'+this.props.logedAc+'Weight')
+            .then(response => response.json())
+            .then(data => this.setState({
+                weightArray: data,
+            }));
+            },2000)
     }
     addWeight(){
         let dateExists=false;

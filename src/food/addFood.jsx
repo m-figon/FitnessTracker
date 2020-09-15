@@ -1,75 +1,66 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../App.css';
-import { Link } from 'react-router-dom';
-class addFood extends Component {
-    constructor() {
-        super();
-        this.state = {
-            food: [],
-            id: "",
-            quantity: 0,
-        }
-        this.input = React.createRef();
-    }
-    componentDidMount() {
+function  AddFood(props) {
+    const [food, setFood] = useState([]);
+    const [id, setId] = useState("");
+    const [quantity, setQuantity] = useState(0);
+    const [foods, setFoods] = useState([]);
+    useEffect(() => {
         fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/Meals')
             .then(response => response.json())
-            .then(data => this.setState({
-                food: data
-            }))
-    }
-    inputChange(e, array) {
-        this.setState({
-            [array]: e.target.value
-        })
-    }
-    addMeal() {
-        if (this.state.id) {
+            .then(data => {
+                setFood(data);
+            })
+    }, [])
+    useEffect(() => {
+        console.log(food);
+        setFoods(food.map((item) => {
+            return (
+                <option key={item.id} value={item.id}>{item.meal}</option>
+            )
+        }));
+    }, [food])
+    const addMeal = () => {
+        if (id) {
             console.log('postin');
-            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + this.props.logedAc + 'Meals', {
+            fetch('https://rocky-citadel-32862.herokuapp.com/Fitness/' + props.logedAc + 'Meals', {
                 method: 'POST',
                 body: JSON.stringify({
-                    meal: this.state.food[this.state.id].meal,
-                    quantity: this.state.quantity,
-                    calories: this.state.food[this.state.id].calories,
-                    carbs: this.state.food[this.state.id].carbs,
-                    fats: this.state.food[this.state.id].fats,
-                    protein: this.state.food[this.state.id].protein,
-                    year: this.props.year,
-                    month: this.props.month,
-                    day: this.props.day
+                    meal: food[id].meal,
+                    quantity: quantity,
+                    calories: food[id].calories,
+                    carbs: food[id].carbs,
+                    fats: food[id].fats,
+                    protein: food[id].protein,
+                    year: props.year,
+                    month: props.month,
+                    day: props.day
                 }),
                 headers: {
                     "Content-type": "application/json; charset=UTF-8"
                 }
-            }).then(()=>{
-                this.props.refreshMeals();
+            }).then(() => {
+                props.refreshMeals();
             })
 
 
         }
 
     }
-    render() {
-        let foods = this.state.food.map((item) => {
-            return (
-                <option value={item.id}>{item.meal}</option>
-            )
-        })
-        return (
-                <div className="food-content">
-                    <h2>Add Food</h2>
-                    <select value={this.state.id} onChange={(e) => this.inputChange(e, "id")}>
-                        <option value="none">Choose meal</option>
-                        {foods}
-                    </select>
-                    <div className="left-side">
-                        <h1>Quantity:</h1>
-                        <input type="text" value={this.state.quantity} onChange={(e) => this.inputChange(e, "quantity")}></input>
-                    </div>
-                    <button id="button" onClick={() => this.addMeal()}>Add Checked</button>
-                </div>
-        )
-    }
+
+    return (
+        <div className="food-content">
+            <h2>Add Food</h2>
+            <select value={id} onChange={(e) => setId(e.target.value)}>
+                <option value="none">Choose meal</option>
+                {foods}
+            </select>
+            <div className="left-side">
+                <h1>Quantity:</h1>
+                <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)}></input>
+            </div>
+            <button id="button" onClick={() => addMeal()}>Add Checked</button>
+        </div>
+    )
 }
-export default addFood;
+export default AddFood;
